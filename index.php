@@ -4,7 +4,7 @@
     if(isset($_SESSION['user_id'])) {
         include 'navbarlogin.php';
     } else {
-        include 'navbar1.php';
+        include 'navbar.php';
     }
     
 ?>
