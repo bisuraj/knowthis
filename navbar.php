@@ -14,8 +14,22 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
     <link rel="stylesheet" href="https://cdn.tailwindcss.com/3.0.12">
-
-    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css"
+  rel="stylesheet"
+/>
 
     <style>
 .form-control:focus {
@@ -165,21 +179,44 @@ background-color: #f7f7fb;
             <div class="modal-body">
                 <!-- Add your login form here -->
                 <form method="POST" class="register-form" id="login-form">
-                            <div class="form-group">
-                                <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="your_name" id="your_name" placeholder="Your Name"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="your_pass" id="your_pass" placeholder="Password"/>
-                            </div>
-                            <div class="form-group">
-                                <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
-                                <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
-                            </div>
-                            <div class="form-group form-button">
-                                <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
-                            </div>
+                <div class="card-body p-5 text-black">
+
+<div class="my-md-5">
+
+  <div class="text-center pt-1">
+    <i class="fas fa-user-astronaut fa-3x"></i>
+    <h1 class="fw-bold my-5 text-uppercase">log in</h1>
+  </div>
+
+  <div class="form-outline form-black mb-4">
+    <input type="email" id="typeEmail" class="form-control form-control-lg" />
+    <label class="form-label" for="typeEmail">Email</label>
+  </div>
+
+  <div class="form-outline form-black mb-4">
+    <input type="password" id="typePassword" class="form-control form-control-lg" />
+    <label class="form-label" for="typePassword">Password</label>
+  </div>
+
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      type="checkbox"
+      value=""
+      id="flexCheckDefault"
+    />
+    <label class="form-check-label" for="flexCheckDefault">
+      Remember me
+    </label>
+  </div>
+</div>
+
+<div class="text-center">
+  <p class="mb-0"><a href="#!" class="text-black fw-bold">Forgot password?</a></p>
+</div>
+
+</div>
+</div>
                         </form>
             </div>
             <div class="modal-footer">
@@ -202,6 +239,7 @@ background-color: #f7f7fb;
             </div>
             <div class="modal-body">
                 <!-- Add your sign up form here -->
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -217,7 +255,10 @@ background-color: #f7f7fb;
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" ></script>
-
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"
+></script>
 
 </body>
 </html>
