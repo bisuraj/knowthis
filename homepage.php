@@ -30,7 +30,6 @@ if (isset($_SESSION['username'])) {
 </div>
 <main class="page landing-page">
 <section class="clean-block clean-hero" style="background-image:url('assets/bg.jpg');">
-
             <div class="text">
                 <h2><?php echo $greeting . " " . $username; ?></h2>
                 <p><?php echo $new . " " . $username; ?></p>
