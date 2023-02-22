@@ -170,12 +170,14 @@ background-color: #f7f7fb;
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header text-center">
                 <h5 class="modal-title" id="loginModalLabel">Login</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+
+
             <div class="modal-body">
                 <!-- Add your login form here -->
                 <form method="POST" class="register-form" id="login-form">
@@ -183,7 +185,7 @@ background-color: #f7f7fb;
 
 <div class="my-md-5">
 
-  <div class="text-center pt-1">
+  <div class="text-center ">
     <i class="fas fa-user-astronaut fa-3x"></i>
     <h1 class="fw-bold my-5 text-uppercase">log in</h1>
   </div>
