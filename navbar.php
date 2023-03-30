@@ -178,21 +178,17 @@ background-color: #f7f7fb;
             </div>
             <div class="modal-body">
                 <!-- Add your login form here -->
-                <form method="POST" class="register-form" id="login-form">
-                <div class="card-body p-5 text-black">
-
-<div class="my-md-5">
-
+<form method="POST" class="register-form" id="login-form">
+<div class="card-body p-5 text-black">
+<div class="my-md-2">
   <div class="text-center pt-1">
     <i class="fas fa-user-astronaut fa-3x"></i>
     <h1 class="fw-bold my-5 text-uppercase">log in</h1>
   </div>
-
   <div class="form-outline form-black mb-4">
     <input type="email" id="typeEmail" class="form-control form-control-lg" />
     <label class="form-label" for="typeEmail">Email</label>
   </div>
-
   <div class="form-outline form-black mb-4">
     <input type="password" id="typePassword" class="form-control form-control-lg" />
     <label class="form-label" for="typePassword">Password</label>
@@ -217,12 +213,13 @@ background-color: #f7f7fb;
 
 </div>
 </div>
-                        </form>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="loginBtn">Login</button>
+                <button type="submit" class="btn btn-primary" id="loginBtn">Login</button>
             </div>
+            </form>
         </div>
     </div>
 </div>
@@ -239,18 +236,71 @@ background-color: #f7f7fb;
             </div>
             <div class="modal-body">
                 <!-- Add your sign up form here -->
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success" id="signupBtn">Sign up</button>
-             </div>
+                <form method="POST" class="register-form" id="signup-form">
+  <div class="card-body p-5 text-black">
+    <div class="my-md-2">
+      <div class="text-center pt-1">
+        <i class="fas fa-user-plus fa-3x"></i>
+        <h1 class="fw-bold my-5 text-uppercase">sign up</h1>
+      </div>
+      <div class="form-outline form-black mb-4">
+        <input type="text" id="typeFullName" class="form-control form-control-lg" />
+        <label class="form-label" for="typeFullName">Full Name</label>
+      </div>
+      <div class="form-outline form-black mb-4">
+        <input type="email" id="typeEmail" class="form-control form-control-lg" />
+        <label class="form-label" for="typeEmail">Email</label>
+      </div>
+      <div class="form-outline form-black mb-4">
+        <input type="password" id="typePassword" class="form-control form-control-lg" />
+        <label class="form-label" for="typePassword">Password</label>
+      </div>
+      <div class="form-outline form-black mb-4">
+        <input type="password" id="typeConfirmPassword" class="form-control form-control-lg" />
+        <label class="form-label" for="typeConfirmPassword">Confirm Password</label>
+      </div>
+      <div class="form-outline form-black mb-4">
+        <select class="form-select" id="genderSelect">
+          <option value="" selected disabled>Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+        <label class="form-label" for="genderSelect">Gender</label>
+      </div>
+      <div class="form-check form-switch mb-4">
+        <input class="form-check-input" type="radio" name="userTypeRadio" id="ruralRadio" value="rural" checked>
+        <label class="form-check-label" for="ruralRadio">Rural User</label>
+      </div>
+      <div class="form-check form-switch mb-4">
+        <input class="form-check-input" type="radio" name="userTypeRadio" id="professionalRadio" value="professional">
+        <label class="form-check-label" for="professionalRadio">Professional User</label>
+      </div>
+      <div class="form-outline form-black mb-4">
+        <input type="text" id="country" class="form-control form-control-lg" >
+        <label class="form-label" for="country">Country</label>
+      </div>
+      <div class="form-outline form-black mb-4">
+        <input type="text" id="city" class="form-control form-control-lg" >
+        <label class="form-label" for="city">City</label>
+      </div>
+      <div class="form-outline form-black mb-4">
+        <input type="text" id="pincode" class="form-control form-control-lg" >
+        <label class="form-label" for="pincode">Pincode</label>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <button type="submit" class="btn btn-primary" id="signupBtn">Sign Up</button>
+  </div>
+</form>
 </div>
 </div>
 </div>
 
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" ></script>
@@ -259,6 +309,8 @@ background-color: #f7f7fb;
   type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"
 ></script>
+<script src="assets/js/validate.js"></script>
+
 
 </body>
 </html>
