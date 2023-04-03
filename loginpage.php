@@ -129,8 +129,8 @@ if (!empty($_SESSION['EMP_ID']) || !empty($_SESSION['SEEK_ID'])) {
 ?>
 
 <body>
-	<div class="login-form mt-5 pt-5">
-		<form action="seeker.login.check.php" method="post" name="form_seekerlogin" onsubmit="return SeekerLogin()">
+	<div class="login-form mt-5 pt-5  mb-5">
+		<form action="signin.php" method="post" name="form_seekerlogin" onsubmit="return SeekerLogin()">
 			<h1 class="text-center">KnowThis</h2>
 				<h2 class="text-center">Sign in</h2>
 				<div class="form-group">
@@ -155,6 +155,8 @@ if (!empty($_SESSION['EMP_ID']) || !empty($_SESSION['SEEK_ID'])) {
 							required="required">
 					</div>
 				</div>
+				<span style="color:Blue;"><?php echo $_SESSION['errmsg']; ?></span>
+
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary login-btn btn-block" name="seeker_btn_login"
 						value="login ">Sign in</button>
@@ -166,10 +168,12 @@ if (!empty($_SESSION['EMP_ID']) || !empty($_SESSION['SEEK_ID'])) {
 					</a>
 				</div>
 		</form>
-		<p class="text-center text-muted small">Don't have an account? <a href="seeker.registration.php">
+        <br>
+		<p class="text-center text-muted small">Don't have an account? <a href="registration.php">
 				<font color="#FF0000">Signup Here</font>
 			</a></p>
 	</div>
+    <br>
 
 </body>
 <?php
