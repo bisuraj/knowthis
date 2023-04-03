@@ -1,9 +1,9 @@
 <?php
 session_start();
-error_reporting(0);
-include("include/config.php");
+// error_reporting(0);
+include("dbconnect.php");
 if (isset($_POST['submit'])) {
-	$ret = mysqli_query($con, "SELECT * FROM users WHERE email='" . $_POST['username'] . "' and password='" . md5($_POST['password']) . "'");
+	$ret = mysqli_query($con, "SELECT * FROM users WHERE email='" . $_POST['email_login'] . "' and password='" . ($_POST['pass_login']) . "'");
 	$num = mysqli_fetch_array($ret);
 	if ($num > 0) {
 		$extra = "askme.php"; //
@@ -11,19 +11,20 @@ if (isset($_POST['submit'])) {
 		$_SESSION['id'] = $num['user_id'];
 		$_SESSION['utype'] = $num['user_type'];
 		$host = $_SERVER['HTTP_HOST'];
-		$status = 1;
+		$_SESSION['status'] = 1;
 		$uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 		header("location:http://$host$uri/$extra");
 		exit();
 	} else {
 		
 		$_SESSION['login'] = $_POST['username'];
-		$status = 0;
+		$_SESSION['status'] = 0;
 		$_SESSION['errmsg'] = "Invalid username or password";
-		$extra = "loginpa.php";
+		$extra = "";
 		$host = $_SERVER['HTTP_HOST'];
 		$uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-		header("location:http://$host$uri/$extra");
+		header("location:http://localhost/knowthis/knowthis/blog.php");
+		// header("location:http://$host$uri/$extra");
 		exit();
 	}
 }
@@ -130,7 +131,7 @@ if (!empty($_SESSION['EMP_ID']) || !empty($_SESSION['SEEK_ID'])) {
 
 <body>
 	<div class="login-form mt-5 pt-5  mb-5">
-		<form action="signin.php" method="post" name="form_seekerlogin" onsubmit="return SeekerLogin()">
+		<form method="post" id="form1">
 			<h1 class="text-center">KnowThis</h2>
 				<h2 class="text-center">Sign in</h2>
 				<div class="form-group">
@@ -158,7 +159,7 @@ if (!empty($_SESSION['EMP_ID']) || !empty($_SESSION['SEEK_ID'])) {
 				<span style="color:Blue;"><?php echo $_SESSION['errmsg']; ?></span>
 
 				<div class="form-group">
-					<button type="submit" class="btn btn-primary login-btn btn-block" name="seeker_btn_login"
+					<button type="submit" form="form1" class="btn btn-primary login-btn btn-block" name="submit"
 						value="login ">Sign in</button>
 				</div>
 				<div class="clearfix">
@@ -169,7 +170,7 @@ if (!empty($_SESSION['EMP_ID']) || !empty($_SESSION['SEEK_ID'])) {
 				</div>
 		</form>
         <br>
-		<p class="text-center text-muted small">Don't have an account? <a href="registration.php">
+		<p class="text-center text-muted small">Don't have an account? <a href="signuppage.php">
 				<font color="#FF0000">Signup Here</font>
 			</a></p>
 	</div>

@@ -140,19 +140,18 @@
                     <div class="mb-4">
                         <img src="static/img/logo-light.svg" title="" alt="">
                     </div>
-                    <div class="text-white-65 mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                        eiusmod.</div>
+                    <div class="text-white-65 mb-4">Know this Platform</div>
                     <div class="nav footer-socila-icon">
-                        <a href="#">
+                        <a href="https://linktr.ee/ujjwal22">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://linktr.ee/ujjwal22">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://linktr.ee/ujjwal22">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#">
+                        <a href="https://linktr.ee/ujjwal22">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>
