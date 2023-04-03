@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>KnowThis</title>
 
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
@@ -135,38 +135,57 @@
   <div class="dashboard-header">
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
       <a class="navbar-brand" href="#">KnowThis</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+<<<<<<< Updated upstream
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+=======
+      <div class="collapse navbar-collapse d-flex align-items-center justify-content-between"
+        id="navbarSupportedContent">
+>>>>>>> Stashed changes
 
         <ul class="navbar-nav ml-auto navbar-right-top pe-2 d-flex align-items-center justify-content-between gap-2 p-2">
           <li class="nav-item">
+<<<<<<< Updated upstream
             <a class="nav-link" href="./">Home</a>
+=======
+            <a class="nav-link" href="index.php">Home</a>
+>>>>>>> Stashed changes
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./askme.php">AskMe</a>
+            <a class="nav-link" href="askme.php">AskMe</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Explore</a>
+            <a class="nav-link" href="news.php">Explore</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Community</a>
+            <a class="nav-link" href="blog.php">Community</a>
           </li>
           <li class="nav-item">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Login</button>
           </li>
 
+<<<<<<< Updated upstream
           <li class="nav-item">
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#signupModal">Sign up</button>
           </li>
+=======
+            <li class="nav-item">
+              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#signupModal">Sign
+                up</button>
+            </li>
+          </div>
+>>>>>>> Stashed changes
 
         </ul>
       </div>
     </nav>
 
     <!-- Login Modal -->
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+      aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -219,7 +238,8 @@
   </div>
 
   <!-- Sign up Modal -->
-  <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
+  <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -275,11 +295,13 @@
                   <label class="form-label" for="genderSelect">Gender</label>
                 </div>
                 <div class="form-check form-switch mb-4">
-                  <input class="form-check-input" type="radio" name="userTypeRadio" id="ruralRadio" value="rural" checked>
+                  <input class="form-check-input" type="radio" name="userTypeRadio" id="ruralRadio" value="rural"
+                    checked>
                   <label class="form-check-label" for="ruralRadio">Rural User</label>
                 </div>
                 <div class="form-check form-switch mb-4">
-                  <input class="form-check-input" type="radio" name="userTypeRadio" id="professionalRadio" value="professional">
+                  <input class="form-check-input" type="radio" name="userTypeRadio" id="professionalRadio"
+                    value="professional">
                   <label class="form-check-label" for="professionalRadio">Professional User</label>
                 </div>
 
@@ -295,9 +317,15 @@
     </div>
 
   </div>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
