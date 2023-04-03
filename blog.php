@@ -19,6 +19,9 @@
     }
 
     ?>
+    <div class="header">
+        <h1>Blogs</h1>
+    </div>
     <div class="container-fluid">
         <main class="tm-main">          
             <div class="row tm-row">
@@ -26,23 +29,22 @@
                     <hr class="tm-hr-primary">
                     <a href="post.html" class="effect-lily tm-post-link tm-pt-60">
                         <div class="tm-post-link-inner">
-                            <img src="img/img-01.jpg" alt="Image" class="img-fluid">                            
+                            <img src="images/onion.jpeg" alt="Image" class="img-fluid">                            
                         </div>
                         <span class="position-absolute tm-new-badge">New</span>
-                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">Simple and useful HTML layout</h2>
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">How a farmer from Nashik grew 195 quintal onion</h2>
                     </a>                    
                     <p class="tm-pt-30">
-                        There is a clickable image with beautiful hover effect and active title link for each post item. 
-                        Left side is a sticky menu bar. Right side is a blog content that will scroll up and down.
+                    Modern farming methods have often proven effective and have delivered outstanding results. A farmer from Nashik, stands testimony to the wonders modern farming techniques can ...
                     </p>
                     <div class="d-flex justify-content-between tm-pt-45">
-                        <span class="tm-color-primary">Travel . Events</span>
-                        <span class="tm-color-primary">June 24, 2020</span>
+                        <span class="tm-color-primary">AgriCulture</span>
+                        <span class="tm-color-primary">April 03,2024</span>
                     </div>
                     <hr>
                     <div class="d-flex justify-content-between">
-                        <span>36 comments</span>
-                        <span>by Admin Nat</span>
+                        <span>0 comments</span>
+                        <span>by Bisuraj Sharma</span>
                     </div>
                 </article>
                 <article class="col-12 col-md-6 tm-post">
