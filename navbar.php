@@ -6,7 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
   <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
@@ -23,9 +22,6 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
   <!-- MDB -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
-
-
-
   <style>
     .form-control:focus {
       color: #495057;
@@ -34,8 +30,6 @@
       outline: 0;
       box-shadow: none !important;
     }
-
-
     .dashboard-header .navbar {
       padding: 0px;
       border-bottom: 1px solid #000000;
@@ -44,9 +38,6 @@
       -webkit-transition: all 0.3s ease;
       min-height: 60px;
     }
-
-
-
     .navbar-brand {
       display: inline-block;
       margin-right: 1rem;
@@ -58,41 +49,30 @@
       font-weight: 700;
       color: #007bff;
     }
-
     .navbar-brand:hover {
       color: #007bff;
     }
-
     .navbar-right-top {}
-
     .navbar-right-top .nav-item {
       border-right: 1px solid #e6e6f2;
     }
-
     .navbar-right-top .nav-item:last-child {
       border: none;
     }
-
     .navbar-right-top .nav-item .nav-link {
       padding: 13px 20px;
       font-size: 16px;
       line-height: 2;
       color: #82849f;
     }
-
-
     /* ----- User Nav Dropdown -----*/
-
     .nav-user {}
-
     .nav-user-dropdown {
       padding: 0px;
       min-width: 230px;
       margin: 0px;
     }
-
     .nav-user-name {}
-
     .nav-user-info {
       background-color: #5969ff;
       line-height: 1.4;
@@ -101,15 +81,12 @@
       font-size: 13px;
       border-radius: 2px 2px 0 0;
     }
-
     .nav-user-info .status {
       float: left;
       top: 7px;
       left: 0px;
     }
-
     .nav-user-dropdown {}
-
     .nav-user-dropdown .dropdown-item {
       display: block;
       width: 100%;
@@ -124,13 +101,11 @@
       font-size: 13px;
       line-height: 0.4;
     }
-
     .nav-user-dropdown .dropdown-item:hover {
       background-color: #f7f7fb;
     }
   </style>
 </head>
-
 <body>
   <div class="dashboard-header">
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
@@ -139,7 +114,6 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
         <ul class="navbar-nav ml-auto navbar-right-top pe-2 d-flex align-items-center justify-content-between gap-2 p-2">
           <li class="nav-item">
             <a class="nav-link" href="./">Home</a>
@@ -156,15 +130,12 @@
           <li class="nav-item">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Login</button>
           </li>
-
           <li class="nav-item">
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#signupModal">Sign up</button>
           </li>
-
         </ul>
       </div>
     </nav>
-
     <!-- Login Modal -->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -192,7 +163,6 @@
                     <input type="password" id="password" class="form-control form-control-lg" />
                     <label class="form-label" for="typePassword">Password</label>
                   </div>
-
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                     <label class="form-check-label" for="flexCheckDefault">
@@ -200,14 +170,11 @@
                     </label>
                   </div>
                 </div>
-
                 <div class="text-center">
                   <p class="mb-0"><a href="#!" class="text-black fw-bold">Forgot password?</a></p>
                 </div>
-
               </div>
           </div>
-
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -217,7 +184,6 @@
       </div>
     </div>
   </div>
-
   <!-- Sign up Modal -->
   <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -282,7 +248,6 @@
                   <input class="form-check-input" type="radio" name="userTypeRadio" id="professionalRadio" value="professional">
                   <label class="form-check-label" for="professionalRadio">Professional User</label>
                 </div>
-
               </div>
             </div>
             <div class="modal-footer">
@@ -293,7 +258,6 @@
         </div>
       </div>
     </div>
-
   </div>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -302,8 +266,5 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
   <script src="assets/js/validate.js"></script>
-
-
 </body>
-
 </html>

@@ -8,6 +8,15 @@
     <title>Blog</title>
     <link href="css/blogcss.css" rel="stylesheet">
 
+    <style>
+        .img-fluid {
+            max-height: 300px;
+            width: 100%;
+            /* height: 300px; */
+            /* width: auto; */
+        }
+    </style>
+
 </head>
 
 <body>
@@ -21,6 +30,7 @@
     }
 
     ?>
+
     <main class="d-flex align-items-center justify-content-center flex-column">
         <div class="d-flex align-items-center justify-content-center flex-wrap p-5" style="width : 90%">
 
@@ -28,7 +38,7 @@
                 <hr class="tm-hr-primary">
                 <a href="post.html" class="effect-lily tm-post-link tm-pt-60">
                     <div class="tm-post-link-inner">
-                        <img src="images/onion.jpeg" alt="Image" class="img-fluid">
+                        <img src="images/onion.jpeg"  alt="Image" class="img-fluid">
                     </div>
                     <span class="position-absolute tm-new-badge">New</span>
                     <h2 class="tm-pt-30 tm-color-primary tm-post-title">How a farmer from Nashik grew 195 quintal onion</h2>
