@@ -12,6 +12,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
     <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="https://cdn.tailwindcss.com/3.0.12">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
 
     <style>
         .form-control:focus {
@@ -70,32 +80,13 @@
 
         /* ----- User Nav Dropdown -----*/
 
-        .nav-user {}
 
-        .nav-user-dropdown {
-            padding: 0px;
-            min-width: 230px;
-            margin: 0px;
-        }
 
-        .nav-user-name {}
 
-        .nav-user-info {
-            background-color: #5969ff;
-            line-height: 1.4;
-            padding: 12px;
-            color: #fff;
-            font-size: 13px;
-            border-radius: 2px 2px 0 0;
-        }
 
-        .nav-user-info .status {
-            float: left;
-            top: 7px;
-            left: 0px;
-        }
 
-        .nav-user-dropdown {}
+
+
 
         .nav-user-dropdown .dropdown-item {
             display: block;
@@ -178,64 +169,54 @@
 
 <body>
     <div class="dashboard-header">
-        <nav class="navbar navbar-expand-lg bg-white fixed-top">
-            <a class="navbar-brand" href="#">KnowThis</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto navbar-right-top">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="askme.php">AskMe</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="news.php">Explore</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="blog.php">Community</a>
-                    </li>
+        <nav class="navbar navbar-expand-md bg-white fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">KnowThis</a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="askme.php">AskMe</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="news.php">Explore</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.php">Community</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle btn btn-outline-regular" href="#" role="button"
+                                data-bs-toggle="dropdown">
+                                <span class="username">
+                                    <?php
+                                    echo $_SESSION['utype'];
+                                    ?>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="edit-profile.php"><i
+                                            class="fas fa-user mr-2"></i>Account</a>
+                                </li>
+                                <li><a class="dropdown-item" href="logout.php"><i class="fas fa-power-off mr-2"></i>Log
+                                        out</a></li>
+                                <li><a class="dropdown-item" href="change-password.php"><i
+                                            class="fas fa-cog mr-2"></i>Change
+                                        Password</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <!-- <div class="nav-item dropdown nav-user">
-                        <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true"
-                          aria-expanded="false"><img src="https://img.icons8.com/dusk/100/000000/user-female-circle.png" alt="" class="user-avatar-md rounded-circle"></a>
-                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
-                             <div class="nav-user-info">
-                                 <h5 class="mb-0 text-white nav-user-name">User Name</h5>
-                             </div>
-                              <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
-                             <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
-                             <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
-                        </div>
-                     </div> -->
-
-            <!-- <div class="nav-item dropdown nav-user dropdown-logo">
-                    <i class="fa-solid fa-user-gear "></i>
-
-                </div> -->
-            <div class="nav-item ">
-                <a class="nav-link dropdown-toggle btn btn-outline-regular" href="#" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    </i> <span class="username">
-
-                        <?php 
-                            echo $_SESSION['uname'];
-                        
-                        ?>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="edit-profile.php"><i class="fas fa-user mr-2"></i>Account</a>
-                    </li>
-                    <li><a class="dropdown-item" href="logout.php"><i class="fas fa-power-off mr-2"></i>Log out</a></li>
-                    <li><a class="dropdown-item" href="change-password.php"><i class="fas fa-cog mr-2"></i>Change
-                            Password</a></li>
-                </ul>
-            </div>
-    </div>
-    </nav>
+        </nav>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

@@ -1,24 +1,25 @@
 <?php
 session_start();
-$_SESSION['errmsg']="";
+$_SESSION['errmsg'] = "";
+$SESSION['status'] = 0;
 // error_reporting(0);
 include("dbconnect.php");
 if (isset($_POST['submit'])) {
 	$ret = mysqli_query($con, "SELECT * FROM users WHERE email='" . $_POST['email_login'] . "' and password='" . md5($_POST['pass_login']) . "'");
 	$num = mysqli_fetch_array($ret);
 	if ($num > 0) {
-		
+
 		$_SESSION['uname'] = $_num['username'];
 		$_SESSION['user_id'] = $num['user_id'];
 		$_SESSION['utype'] = $num['user_type'];
 		$_SESSION['status'] = 1;
-		$extra = "index.php"; 
+		$extra = "index.php";
 		$host = $_SERVER['HTTP_HOST'];
 		$uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 		header("location:http://$host$uri/$extra");
 		exit();
 	} else {
-		
+
 		$_SESSION['status'] = 2;
 		$_SESSION['errmsg'] = "Invalid username or password";
 		$extra = "loginpage.php";
@@ -59,7 +60,7 @@ if (isset($_POST['submit'])) {
 			background: #f7f7f7;
 			padding: 30px;
 			box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-            border-radius: 10px;
+			border-radius: 10px;
 		}
 
 		.login-form h2 {
@@ -156,7 +157,9 @@ if (!empty($_SESSION['EMP_ID']) || !empty($_SESSION['SEEK_ID'])) {
 							required="required">
 					</div>
 				</div>
-				<span style="color:Blue;"><?php echo $_SESSION['errmsg']; ?></span>
+				<span style="color:Blue;">
+					<?php echo $_SESSION['errmsg']; ?>
+				</span>
 
 				<div class="form-group">
 					<button type="submit" form="form1" class="btn btn-primary login-btn btn-block" name="submit"
@@ -169,19 +172,18 @@ if (!empty($_SESSION['EMP_ID']) || !empty($_SESSION['SEEK_ID'])) {
 					</a>
 				</div>
 		</form>
-        <br>
+		<br>
 		<p class="text-center text-muted small">Don't have an account? <a href="signuppage.php">
 				<font color="#FF0000">Signup Here</font>
 			</a></p>
 	</div>
-    <br>
+	<br>
 
 </body>
 <?php
 include 'footer.php';
 
-if($_SESSION['status'] == 2)
-{	
+if ($_SESSION['status'] == 2) {
 	echo '<script> Swal.fire({
         icon: "error",
         title: "<i>Incorrect Email or Pass</i>", 
@@ -190,9 +192,8 @@ if($_SESSION['status'] == 2)
 	unset($_SESSION['status']);
 }
 
-if($_SESSION['status'] == 1)
-{
-    echo '<script> Swal.fire({
+if ($_SESSION['status'] == 1) {
+	echo '<script> Swal.fire({
         icon: "info",
         title: "<i>Alert</i>", 
         html: "Already Logged In",  
