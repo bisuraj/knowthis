@@ -44,10 +44,9 @@ if (isset($_SESSION['username'])) {
 
     .dark1 {
   font-weight: 600;
-  background: radial-gradient(circle at 10% 20%, rgb(0, 0, 0) 0%, rgb(64, 64, 64) 90.2%);
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;  
+  background: linear-gradient(right, #080808, #2b2b2b, #080808);
+  color: #fff;
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.7);
 }
 .dark1.header{
     font-size: 70px;
@@ -65,19 +64,20 @@ if (isset($_SESSION['username'])) {
     <?php } ?>
 </div>
 <main class="page landing-page">
-<section class="section-styling" style="background-image:url('assets/bg.jpg');">
-            <div class="text">
-                <h1 class="dark1 header"><?php echo $greeting . " " . $username; ?></h1>
-                <h2 class="dark1"><?php echo $new . " " . $username; ?></h2>
-                <?php if (!isset($_SESSION['username'])) { ?>
-                    <button class="btn btn-primary"data-toggle="modal" data-target="#signupModal" type="button">Signup here</button>
+<section class="section-styling" style="background-image:url('images/bgimage.jpg'); position:relative;">
+  <div style="background-color:rgba(0,0,0,0.5); position:absolute; top:0; left:0; width:100%; height:100%;"></div>
+  <div class="text" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); text-align:center; z-index:1;">
+    <h1 class="dark1 header"><?php echo $greeting . " " . $username; ?></h1>
+    <h2 class="dark1"><?php echo $new . " " . $username; ?></h2>
+    <?php if (!isset($_SESSION['username'])) { ?>
+    <button class="btn btn-primary"data-toggle="modal" data-target="#signupModal" type="button">Signup here</button>
     <?php } ?>
     <br>
     <br>
     <h2 class="dark1"><?php echo "Ask Your Questions Here "; ?></h2><br>
-    <button class="btn btn-primary"  href="signup.php" type="button">Ask </button>
-    
-        </section>
+    <button class="btn btn-primary" href="signup.php" type="button">Ask</button>
+  </div>
+</section>
     </main>
 
 

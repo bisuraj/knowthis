@@ -1,28 +1,6 @@
 <footer class="bg-dark-gradient footer">
     <div class="footer-top">
         <div class="container">
-            <div class="footer-border-bottom pb-6 mb-5">
-                <div class="row">
-                    <div class="col-lg-4 col-xl-3">
-                        <h4 class="text-white">
-                            Sign up to Get your
-                            Answer
-                        </h4>
-                    </div>
-                    <div class="col-lg-4 col-xl-6">
-                        <form class="d-flex flex-row mb-2 p-1 bg-white input-group">
-                            <input type="email" class="form-control rounded-0 border-0" placeholder="you@yoursite.com">
-                            <button class="btn btn-secondary rounded-0 flex-shrink-0" type="submit">Subscribe</button>
-                        </form>
-                    </div>
-                    <div class="col-lg-4 col-xl-3">
-                        <div class="text-lg-end text-white">
-                            <span class="h6">email Us On</span><br>
-                            <span class="h3">@vit.ac.in</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="row">
                 <div class="col-sm-6 col-lg-3 my-4">
                     <div class="mb-4">
@@ -77,7 +55,7 @@
                                 <img src="https://bootdey.com/img/Content/avatar/avatar1.png" title="" alt="">
                             </div>
                             <div class="col ps-3">
-                                <small class="text-white-65">20BCE....</small>
+                                <small class="text-white-65">20BCE2923</small>
                                 <h6 class="font-w-500 h6 m-0"><a class="text-white" href="#">Bisuraj Sharma</a></h6>
                             </div>
                         </div>
@@ -93,11 +71,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="footer-bottom footer-border-top light py-3">
-        <div class="container text-center">
-            <p class="m-0">© 2023 copyright <a href="#" class="text-reset">Ujjwal Tiwari</a></p>
         </div>
     </div>
 </footer>
