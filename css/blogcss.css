@@ -51,7 +51,7 @@ https://templatemo.com/tm-553-xtra-blog
 .tm-site-logo i { color: #0CC; }
 
 .tm-main {
-    margin-left: 400px;
+    margin-left: 10px;
     padding: 80px 100px 25px;
 }
 
@@ -409,8 +409,6 @@ a:hover figcaption { color: #056767; }
     .tm-header { width: 320px; }
 
     .tm-main {
-        margin-left: 320px;
-        width: calc(100% - 320px);
     }
 }
 
