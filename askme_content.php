@@ -59,41 +59,44 @@
         }
 
         .hr-text {
-            /* padding-top: 50px; */
-            line-height: 1em;
-            position: relative;
-            outline: 0;
-            border: 0;
-            color: black;
-            text-align: center;
-            height: 1.5em;
-            opacity: .5;
-            font-size: large;
-            margin-top: 10px;
-        }
+    /* padding-top: 50px; */
+    line-height: 1em;
+    position: relative;
+    outline: 0;
+    border: 0;
+    color: black;
+    text-align: center;
+    height: 1.5em;
+    opacity: .5;
+    font-size: large;
+    margin-top: 10px;
+}
 
-        .hr-text:before {
-            content: '';
-            background: linear-gradient(to right, transparent, black, transparent);
-            position: absolute;
-            left: 0;
-            top: 50%;
-            width: 100%;
-            height: 1px;
-        }
+.hr-text:before {
+    content: '';
+    background: linear-gradient(to right, transparent, black, transparent);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+}
 
-        .hr-text:after {
-            content: attr(data-content);
-            position: relative;
-            display: inline-block;
-            color: black;
+.hr-text:after {
+    content: attr(data-content);
+    position: absolute;
+    top: -1.5em; /* move the content above the line */
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    color: black;
+    padding: 0 .5em;
+    line-height: 1.5em;
+    /* color: #818078; */
+    background-color: #fcfcfa;
+    margin-bottom: 10px;
+}
 
-            padding: 0 .5em;
-            line-height: 1.5em;
-            /* color: #818078; */
-            background-color: #fcfcfa;
-            margin-bottom: 10px;
-        }
 
         #qTitle {
             margin-bottom: 5px;
@@ -117,7 +120,7 @@
 </head>
 
 <body>
-    <div class="row justify-content-center">
+    <div class="row mt-5 pt-5 justify-content-center">
         <div class="col-lg-7 gedf-main ">
 
             <!--- \\\\\\\Post-->
@@ -146,7 +149,7 @@
 
             <!-- previous Question -->
 
-            <hr class="hr-text" data-content="Other Questions">
+            <hr class="hr-text" data-content="Recent Questions">
             <!--- Question 1 start-->
             <div class="card gedf-card  ">
                 <div class="card-header" style="border: 0;background-color: white;">
@@ -198,7 +201,7 @@
                 <div class="card-footer">
                     <a href="#" class="card-link"><i class="fa-regular fa-message"></i> 3 Answers</a>
                     <a href="#" class="card-link"><i class="fa-regular fa-eye"></i> 21K views</a>
-                    <a href="#" class="card-link"><i class="fa-regular fa-comment"></i> Comment</a>
+                    <!-- <a href="#" class="card-link"><i class="fa-regular fa-comment"></i> Comment</a> -->
                     <a href="#" class="btn btn-outline-primary btn-sm" style="position: absolute;left: 88%;;">
                         Answer</a>
                 </div>

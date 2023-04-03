@@ -3,6 +3,26 @@ session_start();
 $_SESSION['captcha'] = rand(1000, 9999);
 ?>
 
+<?php
+include_once('dbconnect.php');
+if (isset($_POST['submit'])) {
+    $uname = $_POST['username'];
+    $password = md5($_POST['pass']);
+    $email = $_POST['email'];
+    $gender = $_POST['gender'];
+    $city = $_POST['city'];
+    $country = $_POST['country'];
+    $pincode = $_POST['pincode'];
+    $user_type = $_POST['user_type'];
+
+    $query = mysqli_query($con, "insert into users(username,email,password,user_type,country,city,gender,pincode) values('$uname','$username','$email','$password','$user_type','$country','$city','$gender','$pincode')");
+    if ($query) {
+        echo "<script>alert('Successfully Registered. You can login now');</script>";
+        //header('location:user-login.php');
+    }
+}
+?>
+
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -52,7 +72,7 @@ if (!empty($_SESSION['EMP_ID']) || !empty($_SESSION['SEEK_ID'])) {
 <div class="reg-form mt-5 pt-5">
     <form method="post" action="register.php" onclick="return registervalidate()" name="form_registeration">
         <h1 class="text-center">KnowThis</h2>
-            <h2 class="text-center">Registrations</h2>
+            <h2 class="text-center">Registration</h2>
             <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -60,7 +80,7 @@ if (!empty($_SESSION['EMP_ID']) || !empty($_SESSION['SEEK_ID'])) {
                             <span class="fa fa-user"></span>
                         </span>
                     </div>
-                    <input id="textbox" class="form-control" type="text" name="fullname" placeholder="Username">
+                    <input id="textbox" class="form-control" type="text" name="username" placeholder="Username">
                 </div>
             </div>
 
@@ -91,11 +111,12 @@ if (!empty($_SESSION['EMP_ID']) || !empty($_SESSION['SEEK_ID'])) {
                             <span class="fa fa-lock"></span>
                         </span>
                     </div>
-                    <input id="textbox" class="form-control" type="password" name="repass" placeholder="Confirm Password">
+                    <input id="textbox" class="form-control" type="password" name="repass"
+                        placeholder="Confirm Password">
                 </div>
             </div>
             <div class="form-group">
-            <div class="form-check form-check-inline">
+                <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="gender" value="Male">
                     <label class="form-check-label" for="inlineRadio1">Male </label>
                 </div>

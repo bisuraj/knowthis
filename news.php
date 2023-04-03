@@ -9,7 +9,6 @@
             overflow: hidden;
             transition: transform 3s ease-in;
         }
-
         .card:hover .card-body {
             transform: scale(1.05);
         } */
@@ -38,7 +37,8 @@
             $url = "https://newsapi.org/v2/top-headlines";
             $params = array(
                 "country" => "in",
-                "pageSize" => 5,
+                "pageSize" => 8,
+                "category" => "health",
                 "apiKey" => $apiKey
             );
 
@@ -75,7 +75,6 @@
 
 
     <?php
-    include 'homepage.php';
     include 'footer.php';
     ?>
 </body>

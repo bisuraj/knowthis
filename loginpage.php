@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['errmsg']="";
 // error_reporting(0);
 include("dbconnect.php");
 if (isset($_POST['submit'])) {
@@ -10,8 +11,9 @@ if (isset($_POST['submit'])) {
 		$_SESSION['login'] = $_POST['username'];
 		$_SESSION['id'] = $num['user_id'];
 		$_SESSION['utype'] = $num['user_type'];
-		$host = $_SERVER['HTTP_HOST'];
+		$_SESSION['errmsg']="";
 		$_SESSION['status'] = 1;
+		$host = $_SERVER['HTTP_HOST'];
 		$uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 		header("location:http://$host$uri/$extra");
 		exit();
@@ -20,11 +22,10 @@ if (isset($_POST['submit'])) {
 		$_SESSION['login'] = $_POST['username'];
 		$_SESSION['status'] = 0;
 		$_SESSION['errmsg'] = "Invalid username or password";
-		$extra = "";
+		$extra = "loginpage.php";
 		$host = $_SERVER['HTTP_HOST'];
 		$uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-		header("location:http://localhost/knowthis/knowthis/blog.php");
-		// header("location:http://$host$uri/$extra");
+		header("location:http://$host$uri/$extra");
 		exit();
 	}
 }
