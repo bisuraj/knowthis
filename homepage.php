@@ -73,12 +73,13 @@ if (isset($_SESSION['username'])) {
                 <h1 class="dark1 header"><?php echo $greeting . " " . $username; ?></h1>
                 <h2 class="dark1"><?php echo $new . " " . $username; ?></h2>
                 <?php if (!isset($_SESSION['username'])) { ?>
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#signupModal" type="button">Signup here</button>
-                <?php } ?>
+                    <a href="signuppage.php"><button type="button" class="btn btn-primary">Signup here</button></a>
+                    <?php } ?>
                 <br>
                 <br>
                 <h2 class="dark1"><?php echo "Ask Your Questions Here "; ?></h2><br>
-                <button class="btn btn-primary" href="signup.php" type="button">Ask</button>
+                
+                <a href="askme.php"><button class="btn btn-primary" type="button">Ask</button></a>
             </div>
         </section>
     </main>
