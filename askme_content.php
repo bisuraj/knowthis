@@ -59,7 +59,7 @@
         }
 
         .hr-text {
-            padding-top: 50px;
+            /* padding-top: 50px; */
             line-height: 1em;
             position: relative;
             outline: 0;
@@ -69,6 +69,7 @@
             height: 1.5em;
             opacity: .5;
             font-size: large;
+            margin-top: 10px;
         }
 
         .hr-text:before {
@@ -91,6 +92,7 @@
             line-height: 1.5em;
             /* color: #818078; */
             background-color: #fcfcfa;
+            margin-bottom: 10px;
         }
 
         #qTitle {

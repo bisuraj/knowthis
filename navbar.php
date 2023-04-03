@@ -55,7 +55,7 @@
     }
     .navbar-right-top {}
     .navbar-right-top .nav-item {
-      border-right: 1px solid #e6e6f2;
+      /* border-right: 1px solid #e6e6f2; */
     }
     .navbar-right-top .nav-item:last-child {
       border: none;
