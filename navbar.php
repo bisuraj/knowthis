@@ -140,7 +140,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-        <ul class="navbar-nav ml-auto navbar-right-top pe-2 d-flex align-items-center justify-content-between gap-2 ">
+        <ul class="navbar-nav ml-auto navbar-right-top pe-2 d-flex align-items-center justify-content-between gap-2 p-2">
           <li class="nav-item">
             <a class="nav-link" href="./">Home</a>
           </li>
@@ -153,15 +153,13 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Community</a>
           </li>
-          <div class="d-flex align-items-center justify-content-center">
-            <li class="nav-item">
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Login</button>
-            </li>
+          <li class="nav-item">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Login</button>
+          </li>
 
-            <li class="nav-item">
-              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#signupModal">Sign up</button>
-            </li>
-          </div>
+          <li class="nav-item">
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#signupModal">Sign up</button>
+          </li>
 
         </ul>
       </div>
