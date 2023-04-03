@@ -59,43 +59,44 @@
         }
 
         .hr-text {
-    /* padding-top: 50px; */
-    line-height: 1em;
-    position: relative;
-    outline: 0;
-    border: 0;
-    color: black;
-    text-align: center;
-    height: 1.5em;
-    opacity: .5;
-    font-size: large;
-    margin-top: 10px;
-}
+            /* padding-top: 50px; */
+            line-height: 1em;
+            position: relative;
+            outline: 0;
+            border: 0;
+            color: black;
+            text-align: center;
+            height: 1.5em;
+            opacity: .5;
+            font-size: large;
+            margin-top: 10px;
+        }
 
-.hr-text:before {
-    content: '';
-    background: linear-gradient(to right, transparent, black, transparent);
-    position: absolute;
-    left: 0;
-    top: 50%;
-    width: 100%;
-    height: 1px;
-}
+        .hr-text:before {
+            content: '';
+            background: linear-gradient(to right, transparent, black, transparent);
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 1px;
+        }
 
-.hr-text:after {
-    content: attr(data-content);
-    position: absolute;
-    top: -1.5em; /* move the content above the line */
-    left: 50%;
-    transform: translateX(-50%);
-    display: inline-block;
-    color: black;
-    padding: 0 .5em;
-    line-height: 1.5em;
-    /* color: #818078; */
-    background-color: #fcfcfa;
-    margin-bottom: 10px;
-}
+        .hr-text:after {
+            content: attr(data-content);
+            position: absolute;
+            top: -1.5em;
+            /* move the content above the line */
+            left: 50%;
+            transform: translateX(-50%);
+            display: inline-block;
+            color: black;
+            padding: 0 .5em;
+            line-height: 1.5em;
+            /* color: #818078; */
+            background-color: #fcfcfa;
+            margin-bottom: 10px;
+        }
 
 
         #qTitle {
@@ -116,14 +117,19 @@
         .question-main .card-header {
             color: black;
         }
+
+        .fa-sort-up,
+        .fa-sort-down {
+            display: block;
+            text-align: center;
+            margin: auto;
+        }
     </style>
 </head>
 
 <body>
     <div class="row mt-5 pt-5 justify-content-center">
         <div class="col-lg-7 gedf-main ">
-
-            <!--- \\\\\\\Post-->
             <div class="question-main">
                 <div class="card gedf-card">
                     <div class="card-header" style="font-size: larger;">
@@ -131,7 +137,8 @@
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <input type="text" name="question-title" id="qTitle" placeholder="  Title">
+                            <input type="text" class="form-control" name="question-title" id="qTitle"
+                                placeholder="  Title">
                             <textarea class="form-control" id="question" rows="5"
                                 placeholder="What is your Doubt?"></textarea>
                         </div>
@@ -176,10 +183,13 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-1">
-                            <i class="fa-solid fa-sort-up fa-2xl" style="padding-left: 3px;"></i>
-                            <p style="position: relative;padding: 5px 0;margin: 0;">10</p>
-                            <i class="fa-solid fa-sort-down fa-2xl" style="padding-left: 3px;"></i>
+                            <i class="fa-solid fa-sort-up fa-2xl" style="padding-left: 3px; cursor: pointer;"
+                                onclick="upvote()"></i>
+                            <p style="position: relative;padding: 5px 0;margin: 0;" id="voteCount">10</p>
+                            <i class="fa-solid fa-sort-down fa-2xl" style="padding-left: 3px; cursor: pointer;"
+                                onclick="downvote()"></i>
                         </div>
+
                         <div class="col-sm-11">
                             <a class="card-link" href="#">
                                 <h5 class="card-title" style="font-weight: bold;">Question Title.</h5>
@@ -195,20 +205,62 @@
                             </p>
                         </div>
                     </div>
-
-
                 </div>
-                <div class="card-footer">
-                    <a href="#" class="card-link"><i class="fa-regular fa-message"></i> 3 Answers</a>
-                    <a href="#" class="card-link"><i class="fa-regular fa-eye"></i> 21K views</a>
-                    <!-- <a href="#" class="card-link"><i class="fa-regular fa-comment"></i> Comment</a> -->
-                    <a href="#" class="btn btn-outline-primary btn-sm" style="position: absolute;left: 88%;;">
-                        Answer</a>
+    
+            <div class="card-footer">
+                <a href="#" class="card-link" onclick="toggleAnswers()"><i class="fa-regular fa-message"></i> 3
+                    Answers</a>
+                <a href="#" class="btn btn-outline-primary btn-sm" style="position: absolute;left: 88%;;">Answer</a>
+            </div>
+
+            <div id="answers" style="display: none;">
+    <div class="card mt-3">
+        <div class="card-body">
+            <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique, odio vel pretium hendrerit,
+                nisi nibh sodales turpis, at vestibulum justo sapien non lectus. Nunc congue ex id est facilisis, sit
+                amet faucibus enim auctor. Fusce at ex in sapien sodales rhoncus. Fusce quis mauris auctor, iaculis
+                nibh id, sollicitudin sapien. Fusce interdum libero eu sapien auctor, quis faucibus mauris bibendum.
+                Integer eget ipsum sed arcu consequat feugiat in eu libero. Ut nec tellus eget felis lobortis tristique.
+            </p>
+        </div>
+        <div class="card-footer">
+            <div class="row">
+                <div class="col-sm-6">
+                    <p style="font-size: smaller;" class="text-muted">Answered by: John Doe</p>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <p style="font-size: smaller;" class="text-muted">Answered on: 2023-04-04</p>
                 </div>
             </div>
-            <!-- Question 1 end/////-->
         </div>
+    </div>
+            </div>
+        </div>
+        <!-- Question 1 end/////-->
+    </div>
+    <script>
+        let voteCount = 10;
 
+        function upvote() {
+            voteCount++;
+            document.getElementById("voteCount").innerText = voteCount;
+        }
+
+        function downvote() {
+            voteCount--;
+            document.getElementById("voteCount").innerText = voteCount;
+        }
+        function toggleAnswers() {
+            var x = document.getElementById("answers");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+    </script>
 
 </body>
 

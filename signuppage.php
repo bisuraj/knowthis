@@ -1,11 +1,8 @@
 <?php
 session_start();
-$_SESSION['captcha'] = rand(1000, 9999);
-?>
-
-<?php
 include_once('dbconnect.php');
-if (isset($_POST['submit'])) {
+
+if (isset($_POST['register'])) {
     $uname = $_POST['username'];
     $password = md5($_POST['pass']);
     $email = $_POST['email'];
@@ -15,7 +12,7 @@ if (isset($_POST['submit'])) {
     $pincode = $_POST['pincode'];
     $user_type = $_POST['user_type'];
 
-    $query = mysqli_query($con, "insert into users(username,email,password,user_type,country,city,gender,pincode) values('$uname','$username','$email','$password','$user_type','$country','$city','$gender','$pincode')");
+    $query = mysqli_query($con, "insert into users(username,email,password,user_type,country,city,gender,pincode) values('$uname','$email','$password','$user_type','$country','$city','$gender','$pincode')");
     if ($query) {
         echo "<script>alert('Successfully Registered. You can login now');</script>";
         //header('location:user-login.php');
@@ -62,15 +59,11 @@ if (isset($_POST['submit'])) {
     </style>
 </head>
 <?php
-if (!empty($_SESSION['EMP_ID']) || !empty($_SESSION['SEEK_ID'])) {
-    include 'navbar.login.php';
-} else {
     include 'navbar.php';
-}
 ?>
 
 <div class="reg-form mt-5 pt-5">
-    <form method="post" action="register.php" onclick="return registervalidate()" name="form_registeration">
+    <form method="post" onclick="return registervalidate()" name="form_registeration">
         <h1 class="text-center">KnowThis</h2>
             <h2 class="text-center">Registration</h2>
             <div class="form-group">
@@ -127,11 +120,11 @@ if (!empty($_SESSION['EMP_ID']) || !empty($_SESSION['SEEK_ID'])) {
                 <br>
                 <br>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="user_type" value="Male">
+                    <input class="form-check-input" type="radio" name="user_type" value="rural">
                     <label class="form-check-label" for="inlineRadio1">Rural People </label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="user_type" value="Female">
+                    <input class="form-check-input" type="radio" name="user_type" value="professional">
                     <label class="form-check-label" for="inlineRadio2">Professional</label>
                 </div>
                 <div class="form-group">
@@ -178,7 +171,7 @@ if (!empty($_SESSION['EMP_ID']) || !empty($_SESSION['SEEK_ID'])) {
                     </div>
                 </div>
                 <div align="center">
-                    <input type="submit" value="Register Me" id="button" name="emp_btn_register"
+                    <input type="submit" value="Register Me" id="button" name="register"
                         class="btn btn-primary login-btn btn-block" onclick="registervalidate()">
                 </div>
 

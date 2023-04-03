@@ -4,23 +4,22 @@ $_SESSION['errmsg']="";
 // error_reporting(0);
 include("dbconnect.php");
 if (isset($_POST['submit'])) {
-	$ret = mysqli_query($con, "SELECT * FROM users WHERE email='" . $_POST['email_login'] . "' and password='" . ($_POST['pass_login']) . "'");
+	$ret = mysqli_query($con, "SELECT * FROM users WHERE email='" . $_POST['email_login'] . "' and password='" . md5($_POST['pass_login']) . "'");
 	$num = mysqli_fetch_array($ret);
 	if ($num > 0) {
-		$extra = "askme.php"; //
-		$_SESSION['login'] = $_POST['username'];
-		$_SESSION['id'] = $num['user_id'];
+		
+		$_SESSION['uname'] = $_num['username'];
+		$_SESSION['user_id'] = $num['user_id'];
 		$_SESSION['utype'] = $num['user_type'];
-		$_SESSION['errmsg']="";
 		$_SESSION['status'] = 1;
+		$extra = "index.php"; 
 		$host = $_SERVER['HTTP_HOST'];
 		$uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 		header("location:http://$host$uri/$extra");
 		exit();
 	} else {
 		
-		$_SESSION['login'] = $_POST['username'];
-		$_SESSION['status'] = 0;
+		$_SESSION['status'] = 2;
 		$_SESSION['errmsg'] = "Invalid username or password";
 		$extra = "loginpage.php";
 		$host = $_SERVER['HTTP_HOST'];
@@ -181,38 +180,25 @@ if (!empty($_SESSION['EMP_ID']) || !empty($_SESSION['SEEK_ID'])) {
 <?php
 include 'footer.php';
 
-// if($_SESSION['flag_seeker_logincheck'] == 2)
-// {	
-// 	echo '<script> Swal.fire({
-//         icon: "error",
-//         title: "<i>Incorrect Email or Pass</i>", 
-//         text: "Please Enter the Correct Email and Password"
-//       }); </script>';
-// 	$_SESSION['flag_seeker_logincheck'] = 0; 
-// 	unset($_SESSION['flag_seeker_logincheck']);
-// }
+if($_SESSION['status'] == 2)
+{	
+	echo '<script> Swal.fire({
+        icon: "error",
+        title: "<i>Incorrect Email or Pass</i>", 
+        text: "Please Enter the Correct Email and Password"
+      }); </script>';
+	unset($_SESSION['status']);
+}
 
-// if($_SESSION['seek_loggedin'] == 1)
-// {
-//     echo '<script> Swal.fire({
-//         icon: "info",
-//         title: "<i>Alert</i>", 
-//         html: "Already Logged In",  
-//       }); </script>';
-// 	$_SESSION['seek_loggedin'] = 0;
-// 	unset($_SESSION['seek_loggedin']);
-// }
-
-// if($_SESSION['SEEK_JOINED'] == 1)
-// {
-//     echo '<script> Swal.fire({
-//         icon: "info",
-//         title: "<i>Alert</i>", 
-//         html: "You are Now Joined with Us. You can Login now",  
-//       }); </script>';
-// 	$_SESSION['SEEK_JOINED'] = 0;
-// 	unset($_SESSION['SEEK_JOINED']);
-// }
+if($_SESSION['status'] == 1)
+{
+    echo '<script> Swal.fire({
+        icon: "info",
+        title: "<i>Alert</i>", 
+        html: "Already Logged In",  
+      }); </script>';
+	;
+}
 
 ?>
 
