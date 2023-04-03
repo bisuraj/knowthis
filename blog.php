@@ -8,6 +8,13 @@
     <title>Blog</title>
     <link href="css/blogcss.css" rel="stylesheet">
 
+    <style>
+        .img-fluid {
+            /* max-height: 50%; */
+            height: 20vh;
+            width: auto;
+        }
+    </style>
 </head>
 
 <body>
