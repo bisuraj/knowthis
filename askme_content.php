@@ -9,21 +9,16 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
-        integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
+    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.css">
+
+
     <title>AskME</title>
     <style>
         body {
@@ -128,37 +123,28 @@
 </head>
 
 <body>
-    <div class="row mt-5 pt-5 justify-content-center">
-        <div class="col-lg-7 gedf-main ">
-            <div class="question-main">
-                <div class="card gedf-card">
-                    <div class="card-header" style="font-size: larger;">
-                        Ask Your Question?
-                    </div>
-                    <div class="card-body">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="question-title" id="qTitle"
-                                placeholder="  Title">
-                            <textarea class="form-control" id="question" rows="5"
-                                placeholder="What is your Doubt?"></textarea>
-                        </div>
+    <main class="d-flex align-items-center justify-content-center flex-column flex-wrap m-2 p-2 mt-5 pt-5 gap-4 w-100">
+        <h4>Ask a new question</h2>
 
-
-                        <div class="button-div" style="text-align: right;margin-bottom: 0;">
-                            <button type="submit" class="btn btn-outline-primary" name="post" value="post"><i
-                                    class="fa fa-regular fa-paper-plane"
-                                    style="color: blue;padding: 3px;"></i>Post</button>
-                        </div>
-                    </div>
+            <form action="submit_post.php" class="w-50" method="post">
+                <div class="form-group">
+                    <label for="post_title">Question:</label>
+                    <input type="text" name="post_title" id="post_title" class="form-control">
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="post_content">Post Content:</label>
+                    <textarea name="post_content" id="post_content" class="form-control"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Question</button>
+            </form>
 
 
             <!-- previous Question -->
 
-            <hr class="hr-text" data-content="Recent Questions">
+            <hr class="hr-text w-50 mt-4" data-content="Recent Questions">
+
             <!--- Question 1 start-->
-            <div class="card gedf-card  ">
+            <div class="card gedf-card w-50">
                 <div class="card-header" style="border: 0;background-color: white;">
                     <div class="d-flex ">
                         <div class="d-flex  position-relative">
@@ -170,8 +156,7 @@
                                 <div class="h5 m-0">@Username</div>
                                 <div class="h7 text-muted">tag</div>
                             </div>
-                            <div class="text-muted h7 mb-2 " style="position: relative;left: 100%;"> <i
-                                    class="fa-solid fa-clock" style="padding-right: 5px;"></i>Asked: April 19, 2022
+                            <div class="text-muted h7 mb-2 " style="position: relative;left: 100%;"> <i class="fa-solid fa-clock" style="padding-right: 5px;"></i>Asked: April 19, 2022
                             </div>
 
                         </div>
@@ -180,14 +165,12 @@
 
                 </div>
 
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-1">
-                            <i class="fa-solid fa-sort-up fa-2xl" style="padding-left: 3px; cursor: pointer;"
-                                onclick="upvote()"></i>
+                <div class="card-body p-2">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <div class="d-flex align-items-center justify-content-center flex-column">
+                            <i class="fa-solid fa-sort-up fa-2xl" style="padding-left: 3px; cursor: pointer;" onclick="upvote()"></i>
                             <p style="position: relative;padding: 5px 0;margin: 0;" id="voteCount">10</p>
-                            <i class="fa-solid fa-sort-down fa-2xl" style="padding-left: 3px; cursor: pointer;"
-                                onclick="downvote()"></i>
+                            <i class="fa-solid fa-sort-down fa-2xl" style="padding-left: 3px; cursor: pointer;" onclick="downvote()"></i>
                         </div>
 
                         <div class="col-sm-11">
@@ -206,39 +189,41 @@
                         </div>
                     </div>
                 </div>
-    
-            <div class="card-footer">
-                <a href="#" class="card-link" onclick="toggleAnswers()"><i class="fa-regular fa-message"></i> 3
-                    Answers</a>
-                <a href="#" class="btn btn-outline-primary btn-sm" style="position: absolute;left: 88%;;">Answer</a>
-            </div>
 
-            <div id="answers" style="display: none;">
-    <div class="card mt-3">
-        <div class="card-body">
-            <p class="card-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique, odio vel pretium hendrerit,
-                nisi nibh sodales turpis, at vestibulum justo sapien non lectus. Nunc congue ex id est facilisis, sit
-                amet faucibus enim auctor. Fusce at ex in sapien sodales rhoncus. Fusce quis mauris auctor, iaculis
-                nibh id, sollicitudin sapien. Fusce interdum libero eu sapien auctor, quis faucibus mauris bibendum.
-                Integer eget ipsum sed arcu consequat feugiat in eu libero. Ut nec tellus eget felis lobortis tristique.
-            </p>
-        </div>
-        <div class="card-footer">
-            <div class="row">
-                <div class="col-sm-6">
-                    <p style="font-size: smaller;" class="text-muted">Answered by: John Doe</p>
+                <div class="card-footer">
+                    <a href="#" class="card-link" onclick="toggleAnswers()"><i class="fa-regular fa-message"></i> 3
+                        Answers</a>
+                    <a href="#" class="btn btn-outline-primary btn-sm" style="position: absolute;left: 88%;;">Answer</a>
                 </div>
-                <div class="col-sm-6 text-right">
-                    <p style="font-size: smaller;" class="text-muted">Answered on: 2023-04-04</p>
+
+                <div id="answers" style="display: none;">
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <p class="card-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique, odio vel pretium hendrerit,
+                                nisi nibh sodales turpis, at vestibulum justo sapien non lectus. Nunc congue ex id est facilisis, sit
+                                amet faucibus enim auctor. Fusce at ex in sapien sodales rhoncus. Fusce quis mauris auctor, iaculis
+                                nibh id, sollicitudin sapien. Fusce interdum libero eu sapien auctor, quis faucibus mauris bibendum.
+                                Integer eget ipsum sed arcu consequat feugiat in eu libero. Ut nec tellus eget felis lobortis tristique.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <p style="font-size: smaller;" class="text-muted">Answered by: John Doe</p>
+                                </div>
+                                <div class="col-sm-6 text-right">
+                                    <p style="font-size: smaller;" class="text-muted">Answered on: 2023-04-04</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-            </div>
-        </div>
-        <!-- Question 1 end/////-->
-    </div>
+            <!-- Question 1 end/////-->
+
+    </main>
+
     <script>
         let voteCount = 10;
 
@@ -251,6 +236,7 @@
             voteCount--;
             document.getElementById("voteCount").innerText = voteCount;
         }
+
         function toggleAnswers() {
             var x = document.getElementById("answers");
             if (x.style.display === "none") {
@@ -260,6 +246,11 @@
             }
         }
 
+        ClassicEditor
+            .create(document.querySelector('#post_content'))
+            .catch(error => {
+                console.error(error);
+            });
     </script>
 
 </body>
