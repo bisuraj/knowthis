@@ -202,7 +202,7 @@
                                 data-bs-toggle="dropdown">
                                 <span class="username">
                                     <?php
-                                    echo $_SESSION['username'];
+                                    echo $_SESSION['uname'];
                                     ?>
                                 </span>
                             </a>
@@ -213,8 +213,7 @@
                                 <li><a class="dropdown-item" onclick="logout()"><i class="fas fa-power-off mr-2"></i>Log
                                         out</a></li>
                                 <li><a class="dropdown-item" href="change-password.php"><i
-                                            class="fas fa-cog mr-2"></i>Change
-                                        Password</a></li>
+                                            class="fas fa-cog mr-2"></i>Change Password</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -232,8 +231,8 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
         <script>
-    function logout(){
-        Swal.fire({
+function logout(){
+  Swal.fire({
     title: "Are You Sure You Want to Logout",
     icon: "warning",
     showCancelButton: true,
@@ -247,11 +246,10 @@
         "You Have Been Logged Out",
         "Successfully"
       )
-      href="logout.php";
-
+      window.location.href = "logout.php"; // Redirect to logout.php
     }
   });
-    }
+}
 </script>
 </body>
 

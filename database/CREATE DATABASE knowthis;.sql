@@ -17,6 +17,8 @@ CREATE TABLE Users (
   pincode INT(11)
 );
 
+INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `date_registered`, `user_type`, `country`, `city`, `gender`, `pincode`) VALUES
+(3, 'test', 'test@gmail.com', 'ceb6c970658f31504a901b89dcd3e461', '2023-04-03 19:54:02', 'rural', 'India', 'KANPUR', 'male', 208011);
 CREATE TABLE Categories (
   category_id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   category_name VARCHAR(50) NOT NULL
