@@ -183,17 +183,17 @@ include 'navbar.php';
     if ($success == 1) {
         echo "<script>
     Swal.fire({
-      icon: 'success',
+      icon: 'success',  
       title: 'Successfully Registered!',
       text: 'You can login now',
       confirmButtonText: 'OK'
     }).then((result) => {
         if (result.isConfirmed) {
-          window.location.href = 'askme.php';
+          window.location.href = 'loginpage.php';
         }
       });
     </script>";
-        header('location:loginpage.php');
+        
     }
     ?>
 </div>

@@ -258,7 +258,7 @@ $user_id = $_SESSION['user_id'];
 // Loop through the answers and display them
 while ($answer = $result1->fetch_assoc()) {
     ?>
-    <div id="answers" style="display: none;">
+<div class="answers" style="display: none;">
     <div class="card mt-3">
         <div class="card-body">
             <p class="card-text"><?php echo $answer['answer_text']; ?></p>
@@ -297,14 +297,7 @@ while ($answer = $result1->fetch_assoc()) {
                 container.style.display = "none";
             }
         }
-        function toggleAnswers() {
-            var x = document.getElementById("answers");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
+
         let voteCount = 10;
 
         function upvote() {
@@ -318,13 +311,11 @@ while ($answer = $result1->fetch_assoc()) {
         }
 
         function toggleAnswers() {
-            var x = document.getElementById("answers");
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
+    var answers = document.querySelectorAll(".answers");
+    for (var i = 0; i < answers.length; i++) {
+        answers[i].style.display = answers[i].style.display === "none" ? "block" : "none";
+    }
+}
 
         ClassicEditor
             .create(document.querySelector('#post_content'))
