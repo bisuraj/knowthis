@@ -91,7 +91,6 @@ if (isset($_SESSION['uname'])) {
                 <?php } ?>
                 <br>
                 <br>
-<<<<<<< HEAD
                 <?php 
 if(isset($_SESSION['utype'])){
   if($_SESSION['utype']=="rural"){
@@ -108,21 +107,6 @@ if(isset($_SESSION['utype'])){
 ?>
 
                 
-=======
-                <?php if (isset($_SESSION['utype'])) {
-                    if ($_SESSION['utype'] == "rural") {
-                        echo '<h2 class="dark1">Ask Your Questions Here</h2>
-                    <br>
-                    <a href="askme.php"><button class="btn btn-primary" type="button">Ask</button></a>';
-                    } else {
-                        echo '<h2 class="dark1">Answer Questions Here</h2>
-                    <br>
-                    <a href="askme.php"><button class="btn btn-primary" type="button">Answer</button></a>';
-                    }
-
-                }
-                ?>
->>>>>>> e625bf95a5e1bce4b125804b0d485447775607bc
             </div>
         </section>
     </main>

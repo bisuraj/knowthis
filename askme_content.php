@@ -153,21 +153,18 @@ $user_id = $_SESSION['user_id'];}
 <body>
 
     <main class="d-flex align-items-center justify-content-center flex-column flex-wrap m-2 p-2 mt-5 pt-5 gap-4 w-100">
-            <div>
-                  <h4>Ask a new question</h2>
-      
-                      <form action="submit_question.php" class="w-50" method="post">
-                          <div class="form-group">
-                              <label for="post_title">Question:</label>
-                              <input type="text" name="post_title" id="post_title" class="form-control">
-                          </div>
-                          <div class="form-group">
-                              <label for="post_content">Post Content:</label>
-                              <textarea name="post_content" id="post_content" class="form-control"></textarea>
-                          </div>
-                          <button type="submit" class="btn btn-primary">Submit Question</button>
-                      </form>
-              </div>
+    <h4>Ask a new question</h2>
+            <form action="submit_post.php" class="w-50" method="post">
+                <div class="form-group">
+                    <label for="post_title">Question:</label>
+                    <input type="text" name="post_title" id="post_title" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="post_content">Post Content:</label>
+                    <textarea name="post_content" id="post_content" class="form-control"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Question</button>
+            </form>
         <!-- previous Question -->
 
         <hr class="hr-text w-50 mt-4" data-content="Recent Questions">
