@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
 	$ret = mysqli_query($con, "SELECT * FROM users WHERE email='" . $_POST['email_login'] . "' and password='" . md5($_POST['pass_login']) . "'");
 	$num = mysqli_fetch_array($ret);
 	if ($num > 0) {
-    
+
 		$_SESSION['uname'] = $num['user_name'];
 		$_SESSION['user_id'] = $num['user_id'];
 		$_SESSION['utype'] = $num['user_type'];
@@ -181,16 +181,27 @@ if (!empty($_SESSION['user_id'])) {
 </body>
 <?php
 include 'footer.php';
+if (isset($_SESSION['status'])) {
+	if ($_SESSION['status'] == 2) {
+		echo '<script> Swal.fire({
+			icon: "error",
+			title: "<i>Incorrect Email or Pass</i>", 
+			text: "Please Enter the Correct Email and Password"
+		  }); </script>';
+		unset($_SESSION['status']);
+	}
 
-if ($_SESSION['status'] == 2) {
-	echo '<script> Swal.fire({
-        icon: "error",
-        title: "<i>Incorrect Email or Pass</i>", 
-        text: "Please Enter the Correct Email and Password"
-      }); </script>';
-	unset($_SESSION['status']);
+	if ($_SESSION['status'] == 1) {
+		echo '<script> Swal.fire({
+			icon: "info",
+			title: "<i>Alert</i>", 
+			html: "Already Logged In",  
+		  }); </script>';
+		;
+	}
 }
 
+<<<<<<< HEAD
 if ($_SESSION['status'] == 1) {
 	echo '<script> Swal.fire({
         icon: "info",
@@ -198,6 +209,8 @@ if ($_SESSION['status'] == 1) {
         html: "Already Logged In",  
       }); </script>';;
 }
+=======
+>>>>>>> eb931a525936b37e547459e300035b49b2680977
 
 ?>
 
