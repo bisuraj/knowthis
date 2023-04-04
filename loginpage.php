@@ -1,7 +1,7 @@
 <?php
 session_start();
 $_SESSION['errmsg'] = "";
-$SESSION['status'] = 0;
+$_SESSION['status'] = 0;
 // error_reporting(0);
 include("dbconnect.php");
 if (isset($_POST['submit'])) {
@@ -54,18 +54,24 @@ if (isset($_POST['submit'])) {
 		.login-form {
 			width: 400px;
 			margin: 30px auto;
+			color: white;
 		}
 
 		.login-form form {
 			margin-bottom: 15px;
-			background: #f7f7f7;
 			padding: 30px;
-			box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-			border-radius: 10px;
+			background-color: #15172b;
+			border-radius: 20px;
+			box-sizing: border-box;
 		}
 
 		.login-form h2 {
 			margin: 0 0 15px;
+		}
+
+		.reg-form input::placeholder {
+			color: #ccc;
+			/* Change the color to whatever you want */
 		}
 
 		.form-control,
@@ -139,22 +145,24 @@ if (!empty($_SESSION['user_id'])) {
 				<h2 class="text-center">Sign in</h2>
 				<div class="form-group">
 					<div class="input-group">
-						<div class="input-group-prepend">
+						<div class="input-group-prepend bg-white">
 							<span class="input-group-text">
 								<span class="fa fa-user"></span>
 							</span>
 						</div>
-						<input type="text" class="form-control" name="email_login" placeholder="Email" required="required">
+						<input type="text" class="form-control" name="email_login" placeholder="Email"
+							required="required">
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="input-group">
-						<div class="input-group-prepend">
+						<div class="input-group-prepend bg-white">
 							<span class="input-group-text">
 								<i class="fa fa-lock"></i>
 							</span>
 						</div>
-						<input type="password" class="form-control" name="pass_login" placeholder="Password" required="required">
+						<input type="password" class="form-control" name="pass_login" placeholder="Password"
+							required="required">
 					</div>
 				</div>
 				<span style="color:Blue;">
@@ -162,7 +170,8 @@ if (!empty($_SESSION['user_id'])) {
 				</span>
 
 				<div class="form-group">
-					<button type="submit" form="form1" class="btn btn-primary login-btn btn-block" name="submit" value="login ">Sign in</button>
+					<button type="submit" form="form1" class="btn btn-primary login-btn btn-block" name="submit"
+						value="login ">Sign in</button>
 				</div>
 				<div class="clearfix">
 					<label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
@@ -206,7 +215,8 @@ if ($_SESSION['status'] == 1) {
         icon: "info",
         title: "<i>Alert</i>", 
         html: "Already Logged In",  
-      }); </script>';;
+      }); </script>';
+	;
 }
 
 ?>

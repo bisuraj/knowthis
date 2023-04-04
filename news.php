@@ -5,13 +5,13 @@
     <title>News Website</title>
 
     <style>
-        /* .card{
+        .card{
             overflow: hidden;
             transition: transform 3s ease-in;
         }
         .card:hover .card-body {
             transform: scale(1.05);
-        } */
+        }
 
     </style>
 </head>

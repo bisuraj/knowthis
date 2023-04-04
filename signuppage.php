@@ -46,15 +46,89 @@ if (isset($_POST['register'])) {
         }
 
         .reg-form form {
-            margin-bottom: 15px;
+            background-color: #15172b;
+  border-radius: 20px;
+  box-sizing: border-box;
+  /* height: 500px; */
+  padding: 30px;
+  /* width: 320px; */
+            /* margin-bottom: 15px;
             background: #f7f7f7;
             box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-            padding: 30px;
+            padding: 30px; */
         }
 
         .reg-form h2 {
             margin: 0 0 15px;
         }
+
+        /* Custom radio buttons */
+        .reg-form {
+  color: white;
+}
+
+.reg-form input::placeholder {
+  color: #ccc; /* Change the color to whatever you want */
+}
+.custom-radio .custom-radio-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+  position: relative;
+  background-color: transparent;
+  color: #555;
+  font-size: 16px;
+  line-height: 24px;
+  height: 18px;
+  width: 18px;
+  border: 2px solid #bbb;
+  border-radius: 50%;
+  margin: 0 8px 0 0;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.custom-radio .custom-radio-input:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #bbb;
+  transition: all 0.3s ease-in-out;
+}
+
+.custom-radio .custom-radio-input:checked:before {
+  transform: translate(-50%, -50%) scale(1);
+  background-color: #1abc9c;
+}
+
+.custom-radio .custom-radio-label {
+  font-size: 16px;
+  color: white;
+
+}
+
+/* Custom radio button container */
+
+.custom-radio {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 24px;
+}
+
+/* Custom radio button container for second set of radio buttons */
+
+.custom-radio:nth-child(2) {
+  margin-right: 0;
+}
+
     </style>
 </head>
 <?php
@@ -67,7 +141,7 @@ include 'navbar.php';
             <h2 class="text-center">Registration</h2>
             <div class="form-group">
                 <div class="input-group">
-                    <div class="input-group-prepend">
+                    <div class="input-group-prepend bg-white">
                         <span class="input-group-text">
                             <span class="fa fa-user"></span>
                         </span>
@@ -78,7 +152,7 @@ include 'navbar.php';
 
             <div class="form-group">
                 <div class="input-group">
-                    <div class="input-group-prepend">
+                    <div class="input-group-prepend bg-white">
                         <span class="input-group-text">
                             <span class="fa fa-envelope"></span>
                         </span>
@@ -88,7 +162,7 @@ include 'navbar.php';
             </div>
             <div class="form-group">
                 <div class="input-group">
-                    <div class="input-group-prepend">
+                    <div class="input-group-prepend bg-white ">
                         <span class="input-group-text">
                             <span class="fa fa-lock"></span>
                         </span>
@@ -98,7 +172,7 @@ include 'navbar.php';
             </div>
             <div class="form-group">
                 <div class="input-group">
-                    <div class="input-group-prepend">
+                    <div class="input-group-prepend bg-white">
                         <span class="input-group-text">
                             <span class="fa fa-lock"></span>
                         </span>
@@ -109,27 +183,28 @@ include 'navbar.php';
             </div>
             <div class="form-group">
                 <label class="form-check-label" for="inlineRadio2">Gender</label>
-                <div class="form-check form-check-inline">
-                    <input class="" type="radio" name="gender" value="Male">
-                    <label class="form-check-label" for="inlineRadio1">Male </label>
+                <div class="form-check form-check-inline custom-radio">
+                    <input class="custom-radio-input" type="radio" name="gender" value="Male">
+                    <label class="custom-radio-label" for="inlineRadio1">Male </label>
                 </div>
-                <div class="form-check form-check-inline" style="margin-left: 50px;">
-                    <input class="" type="radio" name="gender" value="Female">
-                    <label class="form-check-label" for="inlineRadio2">Female</label>
+                <div class="form-check form-check-inline custom-radio">
+                    <input class="custom-radio-input" type="radio" name="gender" value="Female">
+                    <label class="custom-radio-label" for="inlineRadio2">Female</label>
                 </div>
                 <br>
                 <label class="form-check-label" for="inlineRadio2" style="margin-right: 14px;">Type</label>
-                <div class="form-check form-check-inline">
-                    <input class="" type="radio" name="user_type" value="rural">
-                    <label class="form-check-label" for="inlineRadio1">Rural People </label>
+                <div class="form-check form-check-inline custom-radio">
+                    <input class="custom-radio-input" type="radio" name="user_type" value="rural">
+                    <label class="custom-radio-label" for="inlineRadio1">Rural People</label>
                 </div>
-                <div class="form-check form-check-inline">
-                    <input class="" type="radio" name="user_type" value="professional">
-                    <label class="form-check-label" for="inlineRadio2">Professional</label>
+                <div class="form-check form-check-inline custom-radio">
+                    <input class="custom-radio-input" type="radio" name="user_type" value="professional">
+                    <label class="custom-radio-label" for="inlineRadio2">Professional</label>
                 </div>
+
                 <div class="form-group">
                     <div class="input-group">
-                        <div class="input-group-prepend">
+                        <div class="input-group-prepend bg-white">
                             <span class="input-group-text">
                                 <span class="fa fa-globe"></span>
                             </span>
@@ -139,7 +214,7 @@ include 'navbar.php';
                 </div>
                 <div class="form-group">
                     <div class="input-group">
-                        <div class="input-group-prepend">
+                        <div class="input-group-prepend bg-white">
                             <span class="input-group-text">
                                 <span class="fa fa-globe"></span>
                             </span>
@@ -149,7 +224,7 @@ include 'navbar.php';
                 </div>
                 <div class="form-group">
                     <div class="input-group">
-                        <div class="input-group-prepend">
+                        <div class="input-group-prepend bg-white">
                             <span class="input-group-text">
                                 <span class="fa fa-flag"></span>
                             </span>
@@ -159,15 +234,16 @@ include 'navbar.php';
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">
-                                <span><input type="checkbox" name="agree" onclick="LoadPage()" /> </span>
-                            </span>
+                    <div class="input-group form-check">
+                        <div class="input-group-prepend bg-white">
+                            <span><input type="checkbox" name="agree" class="form-check-input"
+                                    onclick="LoadPage()"></span>
                         </div>
-                        I agree on <a href="index.php" style="text-decoration:none; color:#0000FF">Terms &amp;
-                            Conditions</a>
-                        <font color="#FF0000">&nbsp;*</font>
+                        <label class="form-check-label">
+                            I agree on <a href="index.php" style="text-decoration:none; color:#0000FF">Terms &amp;
+                                Conditions</a>
+                            <font color="#FF0000">&nbsp;*</font>
+                        </label>
                     </div>
                 </div>
                 <div align="center">

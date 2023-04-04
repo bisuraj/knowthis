@@ -52,7 +52,8 @@
     ?>
     <div class="container mt-5 pt-5">
         <div class="text-center">
-            <button type="button" class="btn btn-primary btn-lg pull-right" <?php if ($_SESSION['utype'] == "rural")echo "hidden" ;?> onclick="window.location.href='newpost.php'  >
+            <button type="button" class="btn btn-primary btn-lg pull-right" 
+            <?php if (isset($_SESSION['user_id'])) {if ($_SESSION['utype'] == "rural"){echo "hidden";}} ?> onclick="window.location.href='newpost.php'">
                 <span class=" glyphicon glyphicon-plus"></span> Create new Blog
                 </button>
             </div>
@@ -61,7 +62,29 @@
             <div class="d-flex align-items-center justify-content-center flex-wrap p-5" style="width : 90%">
 
                 <article class="col-12 col-md-6 tm-post">
-                    <a href="post.html" class="effect-lily tm-post-link tm-pt-60">
+                    <a href="blog2.php" class="effect-lily tm-post-link tm-pt-60">
+                        <div class="tm-post-link-inner img-container ">
+                            <img src="images/gvt.jpg" alt="Image" class="img-fluid img-crop">
+                        </div>
+                        <span class="position-absolute tm-new-badge">New</span>
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">Top 10 Central Government Schemes for farmers in India
+                        </h2>
+                    </a>
+                    <p class="tm-pt-30">
+                    The central government aims to maximize farm output and generate employment in the agriculture sector. To achieve this aim it intends to introduce various schemes and plans for the benefit of the farmers. The goal of the central government is ...
+                    </p>
+                    <div class="d-flex justify-content-between tm-pt-45">
+                        <span class="tm-color-primary">Government Schemes</span>
+                        <span class="tm-color-primary">April 04,2024</span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <span>0 comments</span>
+                        <span>by Bisuraj Sharma</span>
+                    </div>
+                </article>
+                <article class="col-12 col-md-6 tm-post">
+                    <a href="blog1.php" class="effect-lily tm-post-link tm-pt-60">
                         <div class="tm-post-link-inner img-container ">
                             <img src="images/onion.jpeg" alt="Image" class="img-fluid img-crop">
                         </div>
@@ -74,7 +97,7 @@
                         from Nashik, stands testimony to the wonders modern farming techniques can ...
                     </p>
                     <div class="d-flex justify-content-between tm-pt-45">
-                        <span class="tm-color-primary">AgriCulture</span>
+                        <span class="tm-color-primary">Agriculture</span>
                         <span class="tm-color-primary">April 03,2024</span>
                     </div>
                     <hr>
@@ -84,20 +107,19 @@
                     </div>
                 </article>
                 <article class="col-12 col-md-6 tm-post">
-                    <a href="post.html" class="effect-lily tm-post-link tm-pt-60">
+                    <a href="blog3.php" class="effect-lily tm-post-link tm-pt-60">
                         <div class="tm-post-link-inner img-container ">
-                            <img src="images/onion.jpeg" alt="Image" class="img-fluid img-crop">
+                            <img src="images/edu.jfif" alt="Image" class="img-fluid img-crop">
                         </div>
                         <span class="position-absolute tm-new-badge">New</span>
-                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">How a farmer from Nashik grew 195 quintal onion
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">IMPROVING THE QUALITY OF EDUCATION IN RURAL INDIA
                         </h2>
                     </a>
                     <p class="tm-pt-30">
-                        Modern farming methods have often proven effective and have delivered outstanding results. A farmer
-                        from Nashik, stands testimony to the wonders modern farming techniques can ...
+                    The Indian demographic can be broadly divided into two categories, Rural and Urban. This divide is not on the basis of caste, religion or creed but the living standards of the community ...
                     </p>
                     <div class="d-flex justify-content-between tm-pt-45">
-                        <span class="tm-color-primary">AgriCulture</span>
+                        <span class="tm-color-primary">Awareness</span>
                         <span class="tm-color-primary">April 03,2024</span>
                     </div>
                     <hr>
@@ -107,90 +129,20 @@
                     </div>
                 </article>
                 <article class="col-12 col-md-6 tm-post">
-                    <a href="post.html" class="effect-lily tm-post-link tm-pt-60">
+                    <a href="blog4.php" class="effect-lily tm-post-link tm-pt-60">
                         <div class="tm-post-link-inner img-container ">
-                            <img src="images/onion.jpeg" alt="Image" class="img-fluid img-crop">
+                            <img src="images/tech.jpg" alt="Image" class="img-fluid img-crop">
                         </div>
                         <span class="position-absolute tm-new-badge">New</span>
-                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">How a farmer from Nashik grew 195 quintal onion
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">How technology investments are revolutionising the agriculture sector in India
                         </h2>
                     </a>
                     <p class="tm-pt-30">
-                        Modern farming methods have often proven effective and have delivered outstanding results. A farmer
-                        from Nashik, stands testimony to the wonders modern farming techniques can ...
+                    Technological interventions are taking over the world gradually. We are entering into the fourth industrial revolution or Industry 4.0 with a focus on digitization and automation. With this ...
                     </p>
                     <div class="d-flex justify-content-between tm-pt-45">
-                        <span class="tm-color-primary">AgriCulture</span>
-                        <span class="tm-color-primary">April 03,2024</span>
-                    </div>
-                    <hr>
-                    <div class="d-flex justify-content-between">
-                        <span>0 comments</span>
-                        <span>by Bisuraj Sharma</span>
-                    </div>
-                </article>
-                <article class="col-12 col-md-6 tm-post">
-                    <a href="post.html" class="effect-lily tm-post-link tm-pt-60">
-                        <div class="tm-post-link-inner img-container ">
-                            <img src="images/onion.jpeg" alt="Image" class="img-fluid img-crop">
-                        </div>
-                        <span class="position-absolute tm-new-badge">New</span>
-                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">How a farmer from Nashik grew 195 quintal onion
-                        </h2>
-                    </a>
-                    <p class="tm-pt-30">
-                        Modern farming methods have often proven effective and have delivered outstanding results. A farmer
-                        from Nashik, stands testimony to the wonders modern farming techniques can ...
-                    </p>
-                    <div class="d-flex justify-content-between tm-pt-45">
-                        <span class="tm-color-primary">AgriCulture</span>
-                        <span class="tm-color-primary">April 03,2024</span>
-                    </div>
-                    <hr>
-                    <div class="d-flex justify-content-between">
-                        <span>0 comments</span>
-                        <span>by Bisuraj Sharma</span>
-                    </div>
-                </article>
-                <article class="col-12 col-md-6 tm-post">
-                    <a href="post.html" class="effect-lily tm-post-link tm-pt-60">
-                        <div class="tm-post-link-inner img-container ">
-                            <img src="images/onion.jpeg" alt="Image" class="img-fluid img-crop">
-                        </div>
-                        <span class="position-absolute tm-new-badge">New</span>
-                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">How a farmer from Nashik grew 195 quintal onion
-                        </h2>
-                    </a>
-                    <p class="tm-pt-30">
-                        Modern farming methods have often proven effective and have delivered outstanding results. A farmer
-                        from Nashik, stands testimony to the wonders modern farming techniques can ...
-                    </p>
-                    <div class="d-flex justify-content-between tm-pt-45">
-                        <span class="tm-color-primary">AgriCulture</span>
-                        <span class="tm-color-primary">April 03,2024</span>
-                    </div>
-                    <hr>
-                    <div class="d-flex justify-content-between">
-                        <span>0 comments</span>
-                        <span>by Bisuraj Sharma</span>
-                    </div>
-                </article>
-                <article class="col-12 col-md-6 tm-post">
-                    <a href="post.html" class="effect-lily tm-post-link tm-pt-60">
-                        <div class="tm-post-link-inner img-container ">
-                            <img src="images/onion.jpeg" alt="Image" class="img-fluid img-crop">
-                        </div>
-                        <span class="position-absolute tm-new-badge">New</span>
-                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">How a farmer from Nashik grew 195 quintal onion
-                        </h2>
-                    </a>
-                    <p class="tm-pt-30">
-                        Modern farming methods have often proven effective and have delivered outstanding results. A farmer
-                        from Nashik, stands testimony to the wonders modern farming techniques can ...
-                    </p>
-                    <div class="d-flex justify-content-between tm-pt-45">
-                        <span class="tm-color-primary">AgriCulture</span>
-                        <span class="tm-color-primary">April 03,2024</span>
+                        <span class="tm-color-primary">Technology</span>
+                        <span class="tm-color-primary">April 05,2024</span>
                     </div>
                     <hr>
                     <div class="d-flex justify-content-between">

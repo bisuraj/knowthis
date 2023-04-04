@@ -13,21 +13,19 @@ if ($result) {
 } else {
     echo "Error: " . mysqli_error($con);
 }
-if(isset($_POST['submit']))
-{
-	$uname = $_POST['username'];
-$email = $_POST['email'];
-$gender = $_POST['gender'];
-$city = $_POST['city'];
-$country = $_POST['country'];
-$pincode = $_POST['pincode'];
+if (isset($_POST['submit'])) {
+    $uname = $_POST['username'];
+    $email = $_POST['email'];
+    $gender = $_POST['gender'];
+    $city = $_POST['city'];
+    $country = $_POST['country'];
+    $pincode = $_POST['pincode'];
 
-$sql=mysqli_query($con,"Update users set user_name='$uname',email='$email',city='$city',gender='$gender',pincode='$pincode',country='$country' where user_id=$user_id");
-if($sql)
-{
-$msg="Your Profile updated Successfully";
-header('location:index.php');
-}
+    $sql = mysqli_query($con, "Update users set user_name='$uname',email='$email',city='$city',gender='$gender',pincode='$pincode',country='$country' where user_id=$user_id");
+    if ($sql) {
+        $msg = "Your Profile updated Successfully";
+        header('location:index.php');
+    }
 }
 
 ?>
@@ -60,14 +58,23 @@ header('location:index.php');
         }
 
         .reg-form form {
-            margin-bottom: 15px;
-            background: #f7f7f7;
-            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            background-color: #15172b;
+            border-radius: 20px;
+            box-sizing: border-box;
             padding: 30px;
+
         }
 
         .reg-form h2 {
             margin: 0 0 15px;
+        }
+
+        .reg-form {
+            color: white;
+        }
+
+        .reg-form input::placeholder {
+            color: #0a1112;
         }
     </style>
 </head>
@@ -81,7 +88,7 @@ include 'navbarlogin.php';
             <h2 class="text-center">Update Profile</h2>
             <div class="form-group">
                 <div class="input-group">
-                    <div class="input-group-prepend">
+                    <div class="input-group-prepend  bg-white">
                         <span class="input-group-text">
                             <span class="fa fa-user"></span>
                         </span>
@@ -92,7 +99,7 @@ include 'navbarlogin.php';
 
             <div class="form-group">
                 <div class="input-group">
-                    <div class="input-group-prepend">
+                    <div class="input-group-prepend bg-white">
                         <span class="input-group-text">
                             <span class="fa fa-envelope"></span>
                         </span>
@@ -101,63 +108,68 @@ include 'navbarlogin.php';
                 </div>
             </div>
             <div class="form-group">
-    <div class="form-check form-check-inline">
-        <input class="" type="radio" name="gender" value="Male" <?php if ($user['gender'] == "male") echo "checked"; ?>>
-        <label class="form-check-label" for="inlineRadio1">Male</label>
-    </div>
-    <div class="form-check form-check-inline">
-        <input class="" type="radio" name="gender" value="Female" <?php if ($user['gender'] == "female") echo "checked"; ?>>
-        <label class="form-check-label" for="inlineRadio2">Female</label>
-    </div>
-</div>
+                <div class="form-check form-check-inline">
+                    <input class="" type="radio" name="gender" value="Male" <?php if ($user['gender'] == "male")
+                        echo "checked"; ?>>
+                    <label class="form-check-label" for="inlineRadio1">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="" type="radio" name="gender" value="Female" <?php if ($user['gender'] == "female")
+                        echo "checked"; ?>>
+                    <label class="form-check-label" for="inlineRadio2">Female</label>
+                </div>
+            </div>
 
-                <br>
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">
-                                <span class="fa fa-globe"></span>
-                            </span>
-                        </div>
-                        <input id="textbox" class="form-control" type="text" name="user_type" value="<?php echo $user['user_type']; ?>" disabled="true" >
+            <br>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend bg-white">
+                        <span class="input-group-text">
+                            <span class="fa fa-globe"></span>
+                        </span>
                     </div>
+                    <input id="textbox" class="form-control" type="text" name="user_type"
+                        value="<?php echo $user['user_type']; ?>" disabled="true">
                 </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">
-                                <span class="fa fa-globe"></span>
-                            </span>
-                        </div>
-                        <input id="textbox" class="form-control" type="text" name="city" value="<?php echo $user['city']; ?>" placeholder="City" >
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend bg-white">
+                        <span class="input-group-text">
+                            <span class="fa fa-globe"></span>
+                        </span>
                     </div>
+                    <input id="textbox" class="form-control" type="text" name="city"
+                        value="<?php echo $user['city']; ?>" placeholder="City">
                 </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">
-                                <span class="fa fa-globe"></span>
-                            </span>
-                        </div>
-                        <input id="textbox" class="form-control" type="text" name="country" value="<?php echo $user['country']; ?>" placeholder="Country">
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend bg-white">
+                        <span class="input-group-text">
+                            <span class="fa fa-globe"></span>
+                        </span>
                     </div>
+                    <input id="textbox" class="form-control" type="text" name="country"
+                        value="<?php echo $user['country']; ?>" placeholder="Country">
                 </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">
-                                <span class="fa fa-flag"></span>
-                            </span>
-                        </div>
-                        <input id="textbox" class="form-control" type="text" name="pincode" value="<?php echo $user['pincode']; ?>"
-                            placeholder="Your Area Pincode">
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend bg-white">
+                        <span class="input-group-text">
+                            <span class="fa fa-flag"></span>
+                        </span>
                     </div>
+                    <input id="textbox" class="form-control" type="text" name="pincode"
+                        value="<?php echo $user['pincode']; ?>" placeholder="Your Area Pincode">
                 </div>
-               
-                <div align="center">
-                    <input type="submit" value="Update Profile" id="button" name="submit"
-                        class="btn btn-primary login-btn btn-block">
-                </div>
+            </div>
+
+            <div align="center">
+                <input type="submit" value="Update Profile" id="button" name="submit"
+                    class="btn btn-primary login-btn btn-block">
+            </div>
 
     </form>
 

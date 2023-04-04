@@ -19,6 +19,9 @@ if (isset($_SESSION['uname'])) {
 
 
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <style>
         .section-styling:before {
             content: "";
@@ -45,22 +48,24 @@ if (isset($_SESSION['uname'])) {
             padding-bottom: 0;
         }
 
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Manifold+CF&display=swap');
 
         .dark1 {
-            font-weight: 600;
+            font-weight: 450;
             background: linear-gradient(right, #080808, #2b2b2b, #080808);
             color: #fff;
             text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.7);
-            font-family: 'Montserrat', sans-serif;
-        }
+            font-family: 'Manifold CF', sans-serif;
+                }
 
         .dark1.header {
             font-size: 60px;
         }
 
         .dark1.header2 {
-            font-size: 70px;
+            margin-top: 25px;
+            font-size: 50px;'
+           margin-bottom: 20px;
         }
     </style>
 </head>

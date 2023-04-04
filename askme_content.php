@@ -154,7 +154,7 @@ $user_id = $_SESSION['user_id'];}
 
     <main class="d-flex align-items-center justify-content-center flex-column flex-wrap m-2 p-2 mt-5 pt-5 gap-4 w-100">
     <h4>Ask a new question</h2>
-            <form action="submit_post.php" class="w-50" method="post">
+            <form action="submit_question.php" class="w-50" method="post">
                 <div class="form-group">
                     <label for="post_title">Question:</label>
                     <input type="text" name="post_title" id="post_title" class="form-control">
@@ -249,11 +249,10 @@ $user_id = $_SESSION['user_id'];}
                             class="fa-regular fa-message"></i>
                         <?php echo $count; ?> Answers
                     </button>
-
                     <button type="button" class="btn btn-outline-primary btn-sm" style="position: absolute;left: 88%;"
-                        onclick="showAnswerForm()" <?php  if(isset($_SESSION['utype'])){if ($_SESSION['utype'] == "rural"){
-                            echo "hidden"; }}?>>Answer</button>
-                    <div id="answer-form-container" style="display: none;">
+    onclick="showAnswerForm(<?php echo $question_id; ?>)" <?php  if(isset($_SESSION['utype'])){if ($_SESSION['utype'] == "rural"){
+        echo "hidden"; }}?>>Answer</button>
+                    <div id="answer-form-container-<?php echo $question_id; ?>" style="display: none;">
                         <?php $questionid1 = $question['question_id']; ?>
                         <form action="post_answer.php" method="post">
                             <div class="form-group">
@@ -306,14 +305,11 @@ $user_id = $_SESSION['user_id'];}
     </main>
 
     <script>
-        function showAnswerForm() {
-            var container = document.getElementById("answer-form-container");
-            if (container.style.display === "none") {
-                container.style.display = "block";
-            } else {
-                container.style.display = "none";
-            }
-        }
+function showAnswerForm(questionId) {
+    var container = document.getElementById("answer-form-container-" + questionId);
+    container.style.display = (container.style.display == "none") ? "block" : "none";
+}
+
 
 
         let voteCount = 10;

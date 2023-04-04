@@ -36,7 +36,6 @@
     }
     .dashboard-header .navbar {
       padding: 0px;
-      border-bottom: 1px solid #000000;
       -webkit-box-shadow: 0px 0px 28px 0px rgba(82, 63, 105, 0.13);
       box-shadow: 0px 0px 28px 0px rgba(82, 63, 105, 0.13);
       -webkit-transition: all 0.3s ease;
