@@ -180,8 +180,9 @@ include 'navbar.php';
                 </div>
     </form>
     <?php
-    if ($success == 1) {
-        echo "<script>
+    if (isset($success)) {
+        if ($success == 1) {
+            echo "<script>
     Swal.fire({
       icon: 'success',  
       title: 'Successfully Registered!',
@@ -193,7 +194,8 @@ include 'navbar.php';
         }
       });
     </script>";
-        
+
+        }
     }
     ?>
 </div>
