@@ -1,3 +1,7 @@
+drop database if exists knowthis;
+create DATABASE knowthis;
+use knowthis;
+
 CREATE TABLE Users (
   user_id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   username VARCHAR(50) NOT NULL,
@@ -58,6 +62,5 @@ CREATE TABLE Blogs (
   blog_title VARCHAR(255) NOT NULL,
   blog_text TEXT NOT NULL,
   date_posted TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (user_id) REFERENCES Users(user_id),
-  CHECK (user_type = 'professional')
+  FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
