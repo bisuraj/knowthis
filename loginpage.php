@@ -201,7 +201,6 @@ if (isset($_SESSION['status'])) {
 	}
 }
 
-<<<<<<< HEAD
 if ($_SESSION['status'] == 1) {
 	echo '<script> Swal.fire({
         icon: "info",
@@ -209,8 +208,6 @@ if ($_SESSION['status'] == 1) {
         html: "Already Logged In",  
       }); </script>';;
 }
-=======
->>>>>>> eb931a525936b37e547459e300035b49b2680977
 
 ?>
 
