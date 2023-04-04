@@ -62,3 +62,6 @@ CREATE TABLE Blogs (
   date_posted TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
+
+INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `date_registered`, `user_type`, `country`, `city`, `gender`, `pincode`) VALUES
+(3, 'test', 'test@gmail.com', 'ceb6c970658f31504a901b89dcd3e461', '2023-04-03 19:54:02', 'rural', 'India', 'KANPUR', 'male', 208011);
