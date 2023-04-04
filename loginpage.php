@@ -10,11 +10,10 @@ if (isset($_POST['submit'])) {
 	if ($num > 0) {
 
 		$_SESSION['username'] = $_num['username'];
-		
 		$_SESSION['user_id'] = $num['user_id'];
 		$_SESSION['utype'] = $num['user_type'];
 		$_SESSION['status'] = 1;
-		print_r($_SESSION);
+		print_r($_SESSION,);
 		$extra = "index.php";
 		$host = $_SERVER['HTTP_HOST'];
 		$uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
