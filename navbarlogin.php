@@ -22,6 +22,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.8/dist/sweetalert2.all.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>  
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>  
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
         .form-control:focus {
@@ -179,7 +183,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto navbar-right-top">
+                    <ul class="navbar-nav ml-auto navbar-right-top me-4">
                         <li class="nav-item">
                             <a class="nav-link" href="/">Home</a>
                         </li>
@@ -193,12 +197,12 @@
                             <a class="nav-link" href="blog.php">Community</a>
                         </li>
 
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown me-5">
                             <a class="nav-link dropdown-toggle btn btn-outline-regular" href="#" role="button"
                                 data-bs-toggle="dropdown">
                                 <span class="username">
                                     <?php
-                                    echo $_SESSION['utype'];
+                                    echo $_SESSION['username'];
                                     ?>
                                 </span>
                             </a>
@@ -206,7 +210,7 @@
                                 <li><a class="dropdown-item" href="edit-profile.php"><i
                                             class="fas fa-user mr-2"></i>Account</a>
                                 </li>
-                                <li><a class="dropdown-item" href="logout.php"><i class="fas fa-power-off mr-2"></i>Log
+                                <li><a class="dropdown-item" onclick="logout()"><i class="fas fa-power-off mr-2"></i>Log
                                         out</a></li>
                                 <li><a class="dropdown-item" href="change-password.php"><i
                                             class="fas fa-cog mr-2"></i>Change
@@ -227,6 +231,28 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+        <script>
+    function logout(){
+        Swal.fire({
+    title: "Are You Sure You Want to Logout",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        "Logged Out",
+        "You Have Been Logged Out",
+        "Successfully"
+      )
+      href="logout.php";
+
+    }
+  });
+    }
+</script>
 </body>
 
 </html>
