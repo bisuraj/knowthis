@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
 	$ret = mysqli_query($con, "SELECT * FROM users WHERE email='" . $_POST['email_login'] . "' and password='" . md5($_POST['pass_login']) . "'");
 	$num = mysqli_fetch_array($ret);
 	if ($num > 0) {
-    
+
 		$_SESSION['uname'] = $num['user_name'];
 		$_SESSION['user_id'] = $num['user_id'];
 		$_SESSION['utype'] = $num['user_type'];
@@ -133,6 +133,7 @@ if (!empty($_SESSION['user_id'])) {
 
 <body>
 	<div class="login-form mt-5 pt-5  mb-5">
+
 		<form method="post" id="form1">
 			<h1 class="text-center">KnowThis</h2>
 				<h2 class="text-center">Sign in</h2>
@@ -143,8 +144,7 @@ if (!empty($_SESSION['user_id'])) {
 								<span class="fa fa-user"></span>
 							</span>
 						</div>
-						<input type="text" class="form-control" name="email_login" placeholder="Email"
-							required="required">
+						<input type="text" class="form-control" name="email_login" placeholder="Email" required="required">
 					</div>
 				</div>
 				<div class="form-group">
@@ -154,8 +154,7 @@ if (!empty($_SESSION['user_id'])) {
 								<i class="fa fa-lock"></i>
 							</span>
 						</div>
-						<input type="password" class="form-control" name="pass_login" placeholder="Password"
-							required="required">
+						<input type="password" class="form-control" name="pass_login" placeholder="Password" required="required">
 					</div>
 				</div>
 				<span style="color:Blue;">
@@ -163,8 +162,7 @@ if (!empty($_SESSION['user_id'])) {
 				</span>
 
 				<div class="form-group">
-					<button type="submit" form="form1" class="btn btn-primary login-btn btn-block" name="submit"
-						value="login ">Sign in</button>
+					<button type="submit" form="form1" class="btn btn-primary login-btn btn-block" name="submit" value="login ">Sign in</button>
 				</div>
 				<div class="clearfix">
 					<label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
@@ -183,14 +181,24 @@ if (!empty($_SESSION['user_id'])) {
 </body>
 <?php
 include 'footer.php';
+if (isset($_SESSION['status'])) {
+	if ($_SESSION['status'] == 2) {
+		echo '<script> Swal.fire({
+			icon: "error",
+			title: "<i>Incorrect Email or Pass</i>", 
+			text: "Please Enter the Correct Email and Password"
+		  }); </script>';
+		unset($_SESSION['status']);
+	}
 
-if ($_SESSION['status'] == 2) {
-	echo '<script> Swal.fire({
-        icon: "error",
-        title: "<i>Incorrect Email or Pass</i>", 
-        text: "Please Enter the Correct Email and Password"
-      }); </script>';
-	unset($_SESSION['status']);
+	if ($_SESSION['status'] == 1) {
+		echo '<script> Swal.fire({
+			icon: "info",
+			title: "<i>Alert</i>", 
+			html: "Already Logged In",  
+		  }); </script>';
+		;
+	}
 }
 
 if ($_SESSION['status'] == 1) {
@@ -198,8 +206,7 @@ if ($_SESSION['status'] == 1) {
         icon: "info",
         title: "<i>Alert</i>", 
         html: "Already Logged In",  
-      }); </script>';
-	;
+      }); </script>';;
 }
 
 ?>
