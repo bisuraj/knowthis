@@ -15,7 +15,7 @@ if (isset($_POST['register'])) {
     $query = mysqli_query($con, "insert into users(username,email,password,user_type,country,city,gender,pincode) values('$uname','$email','$password','$user_type','$country','$city','$gender','$pincode')");
     if ($query) {
         echo "<script>alert('Successfully Registered. You can login now');</script>";
-        //header('location:user-login.php');
+        header('location:loginpage.php');
     }
 }
 ?>
@@ -172,7 +172,7 @@ if (isset($_POST['register'])) {
                 </div>
                 <div align="center">
                     <input type="submit" value="Register Me" id="button" name="register"
-                        class="btn btn-primary login-btn btn-block" onclick="registervalidate()">
+                        class="btn btn-primary login-btn btn-block" >
                 </div>
 
                 <div>
@@ -182,7 +182,44 @@ if (isset($_POST['register'])) {
 
 </div>
 </div>
+<script>
+  function registervalidate() {
+  var username = document.forms["form_registeration"]["username"].value;
+  var email = document.forms["form_registeration"]["email"].value;
+  var password = document.forms["form_registeration"]["pass"].value;
+  var repassword = document.forms["form_registeration"]["repass"].value;
+  var gender = document.forms["form_registeration"]["gender"].value;
+  var userType = document.forms["form_registeration"]["user_type"].value;
+  var city = document.forms["form_registeration"]["city"].value;
+  var country = document.forms["form_registeration"]["country"].value;
+  var pincode = document.forms["form_registeration"]["pincode"].value;
+  var agree = document.forms["form_registeration"]["agree"].checked;
 
+  if (username == "" || email == "" || password == "" || repassword == "" || gender == "" || userType == "" || city == "" || country == "" || pincode == "") {
+    alert("All fields are required.");
+    return false;
+  }
+
+  if (password != repassword) {
+    alert("Passwords do not match.");
+    return false;
+  }
+
+  if (!agree) {
+    alert("Please agree to the terms and conditions.");
+    return false;
+  }
+
+  if (isNaN(pincode) || pincode.length != 6) {
+    alert("Please enter a valid 6-digit pincode.");
+    return false;
+  }
+
+  return true;
+}
+
+
+    </script>
 </body>
 
 <?php

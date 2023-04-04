@@ -1,10 +1,13 @@
 <?php
 session_start();
-$_SESSION['uname'] == "";
+
 session_unset();
+session_destroy();
 //session_destroy();
 $_SESSION['errmsg'] = "You have successfully logout";
+$extra = "index.php";
+$host = $_SERVER['HTTP_HOST'];
+$uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+header("location:http://$host$uri/$extra");
+exit();
 ?>
-<script language="javascript">
-    document.location = "index.php";
-</script>
