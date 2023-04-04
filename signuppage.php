@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once('dbconnect.php');
 
 if (isset($_POST['register'])) {
@@ -12,10 +11,10 @@ if (isset($_POST['register'])) {
     $pincode = $_POST['pincode'];
     $user_type = $_POST['user_type'];
 
-    $query = mysqli_query($con, "insert into users(username,email,password,user_type,country,city,gender,pincode) values('$uname','$email','$password','$user_type','$country','$city','$gender','$pincode')");
+    $query = mysqli_query($con, "insert into users(user_name,email,password,user_type,country,city,gender,pincode) values('$uname','$email','$password','$user_type','$country','$city','$gender','$pincode')");
     if ($query) {
-        echo "<script>alert('Successfully Registered. You can login now');</script>";
-        header('location:loginpage.php');
+        $success = 1;
+
     }
 }
 ?>
@@ -59,11 +58,11 @@ if (isset($_POST['register'])) {
     </style>
 </head>
 <?php
-    include 'navbar.php';
+include 'navbar.php';
 ?>
 
 <div class="reg-form mt-5 pt-5">
-    <form method="post" onclick="return registervalidate()" name="form_registeration">
+    <form method="post" name="form_registeration">
         <h1 class="text-center">KnowThis</h2>
             <h2 class="text-center">Registration</h2>
             <div class="form-group">
@@ -109,22 +108,23 @@ if (isset($_POST['register'])) {
                 </div>
             </div>
             <div class="form-group">
+                <label class="form-check-label" for="inlineRadio2">Gender</label>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="gender" value="Male">
+                    <input class="" type="radio" name="gender" value="Male">
                     <label class="form-check-label" for="inlineRadio1">Male </label>
                 </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="gender" value="Female">
+                <div class="form-check form-check-inline" style="margin-left: 50px;">
+                    <input class="" type="radio" name="gender" value="Female">
                     <label class="form-check-label" for="inlineRadio2">Female</label>
                 </div>
                 <br>
-                <br>
+                <label class="form-check-label" for="inlineRadio2" style="margin-right: 14px;">Type</label>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="user_type" value="rural">
+                    <input class="" type="radio" name="user_type" value="rural">
                     <label class="form-check-label" for="inlineRadio1">Rural People </label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="user_type" value="professional">
+                    <input class="" type="radio" name="user_type" value="professional">
                     <label class="form-check-label" for="inlineRadio2">Professional</label>
                 </div>
                 <div class="form-group">
@@ -171,55 +171,91 @@ if (isset($_POST['register'])) {
                     </div>
                 </div>
                 <div align="center">
-                    <input type="submit" value="Register Me" id="button" name="register"
-                        class="btn btn-primary login-btn btn-block" >
+                    <input type="submit" value="Register Me" id="button" onclick="return registervalidate()"
+                        name="register" class="btn btn-primary login-btn btn-block">
                 </div>
 
                 <div>
                     <input type="hidden" value="<?php echo $query_run_num_username; ?>" name="emp_hddn_username" />
                 </div>
     </form>
-
+    <?php
+    if ($success == 1) {
+        echo "<script>
+    Swal.fire({
+      icon: 'success',
+      title: 'Successfully Registered!',
+      text: 'You can login now',
+      confirmButtonText: 'OK'
+    }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = 'askme.php';
+        }
+      });
+    </script>";
+        header('location:loginpage.php');
+    }
+    ?>
 </div>
 </div>
 <script>
-  function registervalidate() {
-  var username = document.forms["form_registeration"]["username"].value;
-  var email = document.forms["form_registeration"]["email"].value;
-  var password = document.forms["form_registeration"]["pass"].value;
-  var repassword = document.forms["form_registeration"]["repass"].value;
-  var gender = document.forms["form_registeration"]["gender"].value;
-  var userType = document.forms["form_registeration"]["user_type"].value;
-  var city = document.forms["form_registeration"]["city"].value;
-  var country = document.forms["form_registeration"]["country"].value;
-  var pincode = document.forms["form_registeration"]["pincode"].value;
-  var agree = document.forms["form_registeration"]["agree"].checked;
+    function registervalidate() {
+        var username = document.forms["form_registeration"]["username"].value;
+        var email = document.forms["form_registeration"]["email"].value;
+        var password = document.forms["form_registeration"]["pass"].value;
+        var repassword = document.forms["form_registeration"]["repass"].value;
+        var gender = document.forms["form_registeration"]["gender"].value;
+        var userType = document.forms["form_registeration"]["user_type"].value;
+        var city = document.forms["form_registeration"]["city"].value;
+        var country = document.forms["form_registeration"]["country"].value;
+        var pincode = document.forms["form_registeration"]["pincode"].value;
+        var agree = document.forms["form_registeration"]["agree"].checked;
 
-  if (username == "" || email == "" || password == "" || repassword == "" || gender == "" || userType == "" || city == "" || country == "" || pincode == "") {
-    alert("All fields are required.");
-    return false;
-  }
+        if (username == "" || email == "" || password == "" || repassword == "" || gender == "" || userType == "" || city == "" || country == "" || pincode == "") {
+            Swal.fire({
+                title: "Error",
+                text: "All fields are required.",
+                icon: "error",
+                confirmButtonText: "OK",
+            });
+            return false;
+        }
 
-  if (password != repassword) {
-    alert("Passwords do not match.");
-    return false;
-  }
+        if (password != repassword) {
+            Swal.fire({
+                title: "Error",
+                text: "Passwords do not match.",
+                icon: "error",
+                confirmButtonText: "OK",
+            });
+            return false;
+        }
 
-  if (!agree) {
-    alert("Please agree to the terms and conditions.");
-    return false;
-  }
+        if (!agree) {
+            Swal.fire({
+                title: "Error",
+                text: "Please agree to the terms and conditions.",
+                icon: "error",
+                confirmButtonText: "OK",
+            });
+            return false;
+        }
 
-  if (isNaN(pincode) || pincode.length != 6) {
-    alert("Please enter a valid 6-digit pincode.");
-    return false;
-  }
+        if (isNaN(pincode) || pincode.length != 6) {
+            Swal.fire({
+                title: "Error",
+                text: "Please enter a valid 6-digit pincode.",
+                icon: "error",
+                confirmButtonText: "OK",
+            });
+            return false;
+        }
 
-  return true;
-}
+        return true;
+    }
 
 
-    </script>
+</script>
 </body>
 
 <?php

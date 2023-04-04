@@ -23,9 +23,10 @@
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.8/dist/sweetalert2.all.min.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>  
-<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>  
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+    </link>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
         .form-control:focus {
@@ -39,7 +40,7 @@
 
         .dashboard-header .navbar {
             padding: 0px;
-            border-bottom: 1px solid #000000;
+            /* border-bottom: 1px solid #000000; */
             -webkit-box-shadow: 0px 0px 28px 0px rgba(82, 63, 105, 0.13);
             box-shadow: 0px 0px 28px 0px rgba(82, 63, 105, 0.13);
             -webkit-transition: all 0.3s ease;
@@ -64,118 +65,31 @@
             color: #007bff;
         }
 
-        .navbar-right-top {}
-
-        .navbar-right-top .nav-item {
-            border-right: 1px solid #e6e6f2;
-        }
-
-        .navbar-right-top .nav-item:last-child {
-            border: none;
-        }
-
-        .navbar-right-top .nav-item .nav-link {
-            padding: 13px 20px;
-            font-size: 16px;
-            line-height: 2;
-            color: #82849f;
-        }
-
-
-        /* ----- User Nav Dropdown -----*/
-
-
-
-
-
-
-
-
-
-        .nav-user-dropdown .dropdown-item {
-            display: block;
-            width: 100%;
-            padding: 12px 22px 15px;
-            clear: both;
-            font-weight: 400;
-            color: #686972;
-            text-align: inherit;
-            white-space: nowrap;
-            background-color: transparent;
-            border: 0;
-            font-size: 13px;
-            line-height: 0.4;
-        }
-
-        .nav-user-dropdown .dropdown-item:hover {
-            background-color: #f7f7fb;
-        }
-
-        /*---- User icon sizes ---*/
-
-        .user-avatar-xxl {
-            height: 128px;
-            width: 128px;
-        }
-
-        .user-avatar-xl {
-            height: 90px;
-            width: 90px;
-        }
-
-        .user-avatar-lg {
-            height: 48px;
-            width: 48px;
-        }
-
-        .user-avatar-md {
-            height: 32px;
-            width: 32px;
-        }
-
-        .user-avatar-sm {
-            height: 24px;
-            width: 24px;
-        }
-
-        .user-avatar-xs {
-            height: 18px;
-            width: 18px;
-        }
-
-
-
-        .avatar {
-            width: 2.25rem;
-            height: 2.25rem;
+        .navbar .user-profile-image {
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
-            border: 2px solid #F7F9FA;
-            background: #F7F9FA;
-            color: #fff;
-        }
-
-
-        .media-attachment div.avatar {
-            border: none;
-        }
-
-        .avatar.bg-primary {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .avatar.bg-primary i {
-            font-size: 14px;
+            object-fit: cover;
         }
     </style>
 </head>
 
 <body>
+    <!-- Start of ChatBot (www.chatbot.com) code -->
+    <script type="text/javascript">
+        window.__be = window.__be || {};
+        window.__be.id = "642b295ac480070007e725b6";
+        (function () {
+            var be = document.createElement('script'); be.type = 'text/javascript'; be.async = true;
+            be.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.chatbot.com/widget/plugin.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(be, s);
+        })();
+    </script>
+    <!-- End of ChatBot code -->
     <div class="dashboard-header">
         <nav class="navbar navbar-expand-md bg-white fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">KnowThis</a>
+                <a class="navbar-brand" href="index.php">KnowThis</a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -185,7 +99,7 @@
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top me-4">
                         <li class="nav-item">
-                            <a class="nav-link" href="/">Home</a>
+                            <a class="nav-link" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="askme.php">AskMe</a>
@@ -198,13 +112,22 @@
                         </li>
 
                         <li class="nav-item dropdown me-5">
-                            <a class="nav-link dropdown-toggle btn btn-outline-regular" href="#" role="button"
+                            <a class="nav-link dropdown-toggle " href="#" role="button"
                                 data-bs-toggle="dropdown">
                                 <span class="username">
                                     <?php
                                     echo $_SESSION['uname'];
                                     ?>
                                 </span>
+                                <?php
+                                if($_SESSION['utype']=="rural"){
+                                    $imgpath="images/rural.jpg";
+                                }
+                                else{
+                                    $imgpath="images/pro.jpg";
+                                }
+                                ?>
+                                <img class="user-profile-image" src="<?php echo $imgpath ; ?>">
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="edit-profile.php"><i
@@ -212,8 +135,8 @@
                                 </li>
                                 <li><a class="dropdown-item" onclick="logout()"><i class="fas fa-power-off mr-2"></i>Log
                                         out</a></li>
-                                <li><a class="dropdown-item" href="change-password.php"><i
-                                            class="fas fa-cog mr-2"></i>Change Password</a></li>
+                                <li><a class="dropdown-item" href="changepass.php"><i class="fas fa-cog mr-2"></i>Change
+                                        Password</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -230,27 +153,27 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-        <script>
-function logout(){
-  Swal.fire({
-    title: "Are You Sure You Want to Logout",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Yes"
-  }).then((result) => {
-    if (result.isConfirmed) {
-      Swal.fire(
-        "Logged Out",
-        "You Have Been Logged Out",
-        "Successfully"
-      )
-      window.location.href = "logout.php"; // Redirect to logout.php
-    }
-  });
-}
-</script>
+    <script>
+        function logout() {
+            Swal.fire({
+                title: "Are You Sure You Want to Logout",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        "Logged Out",
+                        "You Have Been Logged Out",
+                        "Successfully"
+                    )
+                    window.location.href = "logout.php"; // Redirect to logout.php
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>

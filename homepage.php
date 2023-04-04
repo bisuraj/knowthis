@@ -1,11 +1,11 @@
 <?php
 $currentTime = date("H:i");
 if ($currentTime >= "05:00" && $currentTime < "12:00") {
-    $greeting = "Good morning";
+    $greeting = "Good Morning";
 } elseif ($currentTime >= "12:00" && $currentTime < "18:00") {
-    $greeting = "Good afternoon";
+    $greeting = "Good Afternoon";
 } else {
-    $greeting = "Good evening";
+    $greeting = "Good Evening";
 }
 if (isset($_SESSION['uname'])) {
     $username = $_SESSION['uname'];
@@ -44,19 +44,19 @@ if (isset($_SESSION['uname'])) {
             justify-content: center;
             padding-bottom: 0;
         }
-
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
         .dark1 {
             font-weight: 600;
             background: linear-gradient(right, #080808, #2b2b2b, #080808);
             color: #fff;
             text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.7);
-            font-family: ;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .dark1.header {
-            font-size: 70px;
+            font-size: 60px;
         }
-        .dark1.header {
+        .dark1.header2 {
             font-size: 70px;
         }
     </style>

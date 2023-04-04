@@ -9,11 +9,9 @@ CREATE TABLE Users (
   password VARCHAR(255) NOT NULL,
   date_registered TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   user_type ENUM('rural', 'professional') NOT NULL,
-  profile_picture VARCHAR(255),
   country VARCHAR(50),
   city VARCHAR(50),
   gender ENUM('male', 'female', 'other'),
-  location VARCHAR(255),
   pincode INT(11)
 );
 
