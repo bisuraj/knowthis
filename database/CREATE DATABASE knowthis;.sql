@@ -54,6 +54,13 @@ CREATE TABLE Votes (
   FOREIGN KEY (answer_id) REFERENCES Answers(answer_id)
 );
 
+CREATE TABLE Vote (
+  user_id INT(11) UNSIGNED,
+  question_id INT(11) UNSIGNED,
+  vote_count INT(11),
+  FOREIGN KEY (user_id) REFERENCES Users(user_id),
+  FOREIGN KEY (question_id) REFERENCES Questions(question_id)
+);
 CREATE TABLE Blogs (
   blog_id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   user_id INT(11) UNSIGNED,

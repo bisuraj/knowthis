@@ -82,17 +82,20 @@ if (isset($_SESSION['uname'])) {
                     <?php } ?>
                 <br>
                 <br>
-                <?php if($_SESSION['utype']=="rural"){
-                    echo '<h2 class="dark1">Ask Your Questions Here</h2>
-                    <br>
-                    <a href="askme.php"><button class="btn btn-primary" type="button">Ask</button></a>';
-                }
-                else{
-                    echo '<h2 class="dark1">Answer Questions Here</h2>
-                    <br>
-                    <a href="askme.php"><button class="btn btn-primary" type="button">Answer</button></a>';
-                }
-                ?>
+                <?php 
+if(isset($_SESSION['utype'])){
+  if($_SESSION['utype']=="rural"){
+    echo '<h2 class="dark1">Ask Your Questions Here</h2>
+          <br>
+          <a href="askme.php"><button class="btn btn-primary" type="button">Ask</button></a>';
+  }
+  else{
+    echo '<h2 class="dark1">Answer Questions Here</h2>
+          <br>
+          <a href="askme.php"><button class="btn btn-primary" type="button">Answer</button></a>';
+  }
+}
+?>
 
                 
             </div>

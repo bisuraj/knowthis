@@ -1,7 +1,8 @@
 <?php
 // session_start();
 include("./dbconnect.php");
-$user_id = $_SESSION['user_id'];
+if(isset($_SESSION['user_id'])){
+$user_id = $_SESSION['user_id'];}
 ?>
 
 <!DOCTYPE html>
@@ -152,8 +153,7 @@ $user_id = $_SESSION['user_id'];
 <body>
 
     <main class="d-flex align-items-center justify-content-center flex-column flex-wrap m-2 p-2 mt-5 pt-5 gap-4 w-100">
-    <?php if($_SESSION['utype']=="rural"){
-                  echo '<div>
+            <div>
                   <h4>Ask a new question</h2>
       
                       <form action="submit_question.php" class="w-50" method="post">
@@ -167,23 +167,25 @@ $user_id = $_SESSION['user_id'];
                           </div>
                           <button type="submit" class="btn btn-primary">Submit Question</button>
                       </form>
-              </div>';
-    }
-                ?>    
-    
-
-
-
+              </div>
         <!-- previous Question -->
 
         <hr class="hr-text w-50 mt-4" data-content="Recent Questions">
 
         <?php
 
-        $sql = "SELECT q.question_id, q.user_id, q.question_title, q.question_text, q.date_asked, u.user_name 
-            FROM Questions q 
-            JOIN Users u 
-            ON q.user_id = u.user_id ";
+        $sql = "SELECT 
+        q.question_id, 
+        q.user_id, 
+        q.question_title, 
+        q.question_text, 
+        q.date_asked, 
+        u.user_name,
+        v.vote_count
+      FROM Questions q 
+      JOIN Users u ON q.user_id = u.user_id
+      LEFT JOIN Vote v ON q.question_id = v.question_id
+      GROUP BY q.question_id";
         $result = $con->query($sql);
 
         while ($question = $result->fetch_assoc()) {
@@ -213,16 +215,17 @@ $user_id = $_SESSION['user_id'];
                 </div>
                 <div class="card-body p-2">
                     <div class="d-flex align-items-center justify-content-center">
-                        <div class="d-flex align-items-center justify-content-center flex-column">
+
+                       <div class="d-flex align-items-center justify-content-center flex-column">
                             <i class="fa-solid fa-sort-up fa-2xl" style="padding-left: 3px; cursor: pointer;"
-                                onclick="upvote()"></i>
+                                onclick="upvote(this)" data-question-id="<?php echo $question['question_id']; ?>"></i>
                             <p style="position: relative;padding: 5px 0;margin: 0;" id="voteCount">
-                                0
+                                <?php echo $question['vote_count']; ?>
                             </p>
                             <i class="fa-solid fa-sort-down fa-2xl" style="padding-left: 3px; cursor: pointer;"
-                                onclick="downvote()"></i>
-                        </div>
-                        <div class="col-sm-11">
+                                onclick="downvote(this)" data-question-id="<?php echo $question['question_id']; ?>"></i>
+                        </div> 
+                    <div class="col-sm-11">
                             <a class="card-link" href="#">
                                 <h5 class="card-title" style="font-weight: bold;">
                                     <?php echo $question['question_title']; ?>
@@ -251,8 +254,8 @@ $user_id = $_SESSION['user_id'];
                     </button>
 
                     <button type="button" class="btn btn-outline-primary btn-sm" style="position: absolute;left: 88%;"
-                        onclick="showAnswerForm()" <?php if ($_SESSION['utype'] == "rural")
-                            echo "hidden"; ?>>Answer</button>
+                        onclick="showAnswerForm()" <?php  if(isset($_SESSION['utype'])){if ($_SESSION['utype'] == "rural"){
+                            echo "hidden"; }}?>>Answer</button>
                     <div id="answer-form-container" style="display: none;">
                         <?php $questionid1 = $question['question_id']; ?>
                         <form action="post_answer.php" method="post">
@@ -267,8 +270,6 @@ $user_id = $_SESSION['user_id'];
                     </div>
                 </div>
                 <?php
-
-                // Loop through the answers and display them
                 while ($answer = $result1->fetch_assoc()) {
                     ?>
                     <div class="answers" style="display: none;">
@@ -317,11 +318,14 @@ $user_id = $_SESSION['user_id'];
             }
         }
 
+
         let voteCount = 10;
 
         function upvote() {
-            voteCount++;
-            document.getElementById("voteCount").innerText = voteCount;
+            
+            vote=document.getElementById("voteCount");
+            vote++;
+            document.getElementById("voteCount").innerText = vote;
         }
 
         function downvote() {
@@ -329,6 +333,25 @@ $user_id = $_SESSION['user_id'];
             document.getElementById("voteCount").innerText = voteCount;
         }
 
+        function updateVoteCount(questionId, voteType) {
+  $.ajax({
+    type: 'POST',
+    url: 'update_vote.php',
+    data: { question_id: questionId, vote_type: voteType },
+    success: function(result) {
+      $('#voteCount').html(result);
+    }
+  });
+}
+function upvote(button) {
+  var questionId = $(button).data('question-id');
+  updateVoteCount(questionId, 'upvote');
+}
+
+function downvote(button) {
+  var questionId = $(button).data('question-id');
+  updateVoteCount(questionId, 'downvote');
+}
         function toggleAnswers() {
             var answers = document.querySelectorAll(".answers");
             for (var i = 0; i < answers.length; i++) {
