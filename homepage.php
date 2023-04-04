@@ -7,8 +7,9 @@ if ($currentTime >= "05:00" && $currentTime < "12:00") {
 } else {
     $greeting = "Good evening";
 }
-if (isset($_SESSION['username'])) {
-    $username = $_SESSION['username'];
+if (isset($_SESSION['uname'])) {
+    $username = $_SESSION['uname'];
+    $new="";
 } else {
     $username = "";
     $new = "New to This Platform";
@@ -49,8 +50,12 @@ if (isset($_SESSION['username'])) {
             background: linear-gradient(right, #080808, #2b2b2b, #080808);
             color: #fff;
             text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.7);
+            font-family: ;
         }
 
+        .dark1.header {
+            font-size: 70px;
+        }
         .dark1.header {
             font-size: 70px;
         }
@@ -70,9 +75,9 @@ if (isset($_SESSION['username'])) {
         <section class="section-styling" style="background-image:url('images/bgimage.jpg'); position:relative;">
             <div style="background-color:rgba(0,0,0,0.5); position:absolute; top:0; left:0; width:100%; height:100%;"></div>
             <div class="text" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); text-align:center; z-index:1;">
-                <h1 class="dark1 header"><?php echo $greeting . " " . $username; ?></h1>
-                <h2 class="dark1"><?php echo $new . " " . $username; ?></h2>
-                <?php if (!isset($_SESSION['username'])) { ?>
+                <h1 class="dark1 header"><?php echo $greeting . " "; ?></h1>
+                <h2 class="dark1 header2"><?php echo $new . " " . strtoupper($username); ?></h2>
+                <?php if (!isset($_SESSION['uname'])) { ?>
                     <a href="signuppage.php"><button type="button" class="btn btn-primary">Signup here</button></a>
                     <?php } ?>
                 <br>

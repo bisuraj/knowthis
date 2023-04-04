@@ -8,12 +8,12 @@ if (isset($_POST['submit'])) {
 	$ret = mysqli_query($con, "SELECT * FROM users WHERE email='" . $_POST['email_login'] . "' and password='" . md5($_POST['pass_login']) . "'");
 	$num = mysqli_fetch_array($ret);
 	if ($num > 0) {
-
-		$_SESSION['username'] = $_num['username'];
+    
+		$_SESSION['uname'] = $num['user_name'];
 		$_SESSION['user_id'] = $num['user_id'];
 		$_SESSION['utype'] = $num['user_type'];
 		$_SESSION['status'] = 1;
-		print_r($_SESSION,);
+		// echo print_r($_SESSION, true);
 		$extra = "index.php";
 		$host = $_SERVER['HTTP_HOST'];
 		$uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
@@ -124,7 +124,7 @@ if (isset($_POST['submit'])) {
 	</style>
 </head>
 <?php
-if (!empty($_SESSION['EMP_ID']) || !empty($_SESSION['SEEK_ID'])) {
+if (!empty($_SESSION['user_id'])) {
 	include 'navbar.login.php';
 } else {
 	include 'navbar.php';
