@@ -222,39 +222,49 @@
         </div>
     </div>
 </footer>
-<script> $('document').ready(function () {
-            $('#google_translate_element').on("click", function () {
-                // Change font family and color
-                $("iframe").contents().find(".goog-te-menu2-item div, .goog-te-menu2-item:link div, .goog-te-menu2-item:visited div, .goog-te-menu2-item:active div, .goog-te-menu2 *")
-                    .css({
-                        'color': '#544F4B',
-                        'font-family': 'Roboto',
-                        'width': '100%'
-                    });
-                $("iframe").contents().find('.goog-te-menu2-item-selected').css('display', 'none');
-                $("iframe").contents().find('.goog-te-menu2').css('padding', '0px');
-                $("iframe").contents().find('.goog-te-menu2-item div').css('padding', '20px');
-                $("iframe").contents().find('.goog-te-menu2-item').css('width', '100%');
-                $("iframe").contents().find('td').css('width', '100%');
-                $("iframe").contents().find(".goog-te-menu2-item div").hover(function () {
-                    $(this).css('background-color', '#4385F5').find('span.text').css('color', 'white');
-                }, function () {
-                    $(this).css('background-color', 'white').find('span.text').css('color', '#544F4B');
-                });
-                $("iframe").contents().find('.goog-te-menu2').css('border', 'none');
-                $(".goog-te-menu-frame").css('box-shadow', '0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3)');
-                $(".goog-te-menu-frame").css({
-                    'height': '100%',
-                    'width': '100%',
-                    'top': '0px'
-                });
-                // Change iframes's size
-                $("iframe").contents().find('.goog-te-menu2').css({
-                    'height': '100%',
-                    'width': '100%'
-                });
-            });
-        });
+<script>$('document').ready(function () {
+  $('#google_translate_element').on("click", function () {
+    // Change font family, color and size
+    $("iframe").contents().find(".goog-te-menu2-item div, .goog-te-menu2-item:link div, .goog-te-menu2-item:visited div, .goog-te-menu2-item:active div, .goog-te-menu2 *")
+      .css({
+        'color': '#333',
+        'font-family': 'Roboto',
+        'font-size': '14px',
+        'width': '100%'
+      });
+    // Add hover effect
+    $("iframe").contents().find(".goog-te-menu2-item div").hover(function () {
+      $(this).css({
+        'background-color': '#f1f1f1',
+        'border-radius': '5px'
+      }).find('span.text').css('color', '#333');
+    }, function () {
+      $(this).css({
+        'background-color': 'transparent',
+        'border-radius': '0px'
+      }).find('span.text').css('color', '#333');
+    });
+    // Hide selected option
+    $("iframe").contents().find('.goog-te-menu2-item-selected').css('display', 'none');
+    // Adjust padding and width
+    $("iframe").contents().find('.goog-te-menu2').css({
+      'padding': '0px',
+      'width': '100%'
+    });
+    $("iframe").contents().find('.goog-te-menu2-item div').css('padding', '10px 20px');
+    $("iframe").contents().find('.goog-te-menu2-item').css('width', '100%');
+    $("iframe").contents().find('td').css('width', '100%');
+    // Remove border and adjust box-shadow
+    $("iframe").contents().find('.goog-te-menu2').css('border', 'none');
+    $(".goog-te-menu-frame").css('box-shadow', '0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)');
+    // Adjust iframe size
+    $(".goog-te-menu-frame").css({
+      'height': '100%',
+      'width': '100%',
+      'top': '0px'
+    });
+  });
+});
 
 
             </script>

@@ -36,7 +36,12 @@
             outline: 0;
             box-shadow: none !important;
         }
-
+        .small-icon {
+    font-size: 16px; // Adjust the font size as needed
+}
+.swal2-icon.swal2-warning {
+  font-size: 1rem;
+}
 
         .dashboard-header .navbar {
             padding: 0px;
@@ -101,9 +106,18 @@
                         <li class="nav-item">
                             <a class="nav-link" href="index.php">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="askme.php">AskMe</a>
-                        </li>
+                        <?php if($_SESSION['utype']=="rural"){
+                    echo ' <li class="nav-item">
+                    <a class="nav-link" href="askme.php">AskMe</a>
+                </li>';
+                }
+                else{
+                    echo ' <li class="nav-item">
+                    <a class="nav-link" href="askme.php">Answer</a>
+                </li>';
+                }
+                ?>
+                       
                         <li class="nav-item">
                             <a class="nav-link" href="news.php">Explore</a>
                         </li>
@@ -156,22 +170,25 @@
     <script>
         function logout() {
             Swal.fire({
-                title: "Are You Sure You Want to Logout",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Yes"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire(
-                        "Logged Out",
-                        "You Have Been Logged Out",
-                        "Successfully"
-                    )
-                    window.location.href = "logout.php"; // Redirect to logout.php
-                }
-            });
+    title: "Are You Sure You Want to Logout",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes",
+    customClass: {
+        icon: 'small-icon' // Add a custom class to the icon element
+    }
+}).then((result) => {
+    if (result.isConfirmed) {
+        Swal.fire(
+            "Logged Out",
+            "You Have Been Logged Out",
+            "Successfully"
+        )
+        window.location.href = "logout.php"; // Redirect to logout.php
+    }
+});
         }
     </script>
 </body>

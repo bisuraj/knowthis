@@ -18,6 +18,7 @@
 
 <body>
     <?php
+    session_start();
     if (isset($_SESSION['user_id'])) {
         include 'navbarlogin.php';
     } else {
@@ -38,8 +39,7 @@
             $params = array(
                 "country" => "in",
                 "pageSize" => 8,
-                "category" => "health",
-                "apiKey" => $apiKey
+            "apiKey" => $apiKey
             );
 
             $queryString = http_build_query($params);

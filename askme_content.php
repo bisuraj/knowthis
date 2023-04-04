@@ -2,7 +2,7 @@
 // session_start();
 include("./dbconnect.php");
 $user_id = $_SESSION['user_id'];
-    ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -136,152 +136,171 @@ $user_id = $_SESSION['user_id'];
             text-align: center;
             margin: auto;
         }
+
         .btn-transparent {
-        border: none;
-        background: transparent;
-        padding: 0;
-        font-size: inherit;
-        color: inherit;
-        cursor: pointer;
-        text-decoration: none;
-    }
+            border: none;
+            background: transparent;
+            padding: 0;
+            font-size: inherit;
+            color: inherit;
+            cursor: pointer;
+            text-decoration: none;
+        }
     </style>
 </head>
 
 <body>
 
     <main class="d-flex align-items-center justify-content-center flex-column flex-wrap m-2 p-2 mt-5 pt-5 gap-4 w-100">
-        <h4>Ask a new question</h2>
+    <?php if($_SESSION['utype']=="rural"){
+                  echo '<div>
+                  <h4>Ask a new question</h2>
+      
+                      <form action="submit_question.php" class="w-50" method="post">
+                          <div class="form-group">
+                              <label for="post_title">Question:</label>
+                              <input type="text" name="post_title" id="post_title" class="form-control">
+                          </div>
+                          <div class="form-group">
+                              <label for="post_content">Post Content:</label>
+                              <textarea name="post_content" id="post_content" class="form-control"></textarea>
+                          </div>
+                          <button type="submit" class="btn btn-primary">Submit Question</button>
+                      </form>
+              </div>';
+    }
+                ?>    
+    
 
-            <form action="submit_question.php" class="w-50" method="post">
-                <div class="form-group">
-                    <label for="post_title">Question:</label>
-                    <input type="text" name="post_title" id="post_title" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="post_content">Post Content:</label>
-                    <textarea name="post_content" id="post_content" class="form-control"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit Question</button>
-            </form>
 
 
-            <!-- previous Question -->
+        <!-- previous Question -->
 
-            <hr class="hr-text w-50 mt-4" data-content="Recent Questions">
+        <hr class="hr-text w-50 mt-4" data-content="Recent Questions">
 
-            <?php
+        <?php
 
-            $sql = "SELECT q.question_id, q.user_id, q.question_title, q.question_text, q.date_asked, u.user_name 
+        $sql = "SELECT q.question_id, q.user_id, q.question_title, q.question_text, q.date_asked, u.user_name 
             FROM Questions q 
             JOIN Users u 
             ON q.user_id = u.user_id ";
-            $result = $con->query($sql);
+        $result = $con->query($sql);
 
-            while ($question = $result->fetch_assoc()) {
-                ?>
+        while ($question = $result->fetch_assoc()) {
+            ?>
 
 
-                <div class="card gedf-card w-50">
-                    <div class="card-header" style="border: 0;background-color: white;">
-                        <div class="d-flex ">
-                            <div class="d-flex  position-relative">
-                                <div class="mr-2">
-                                    <!-- <i class="fa-light fa-circle fa-flip fa-lg"></i> -->
-                                    <img class="rounded-circle" width="45" src="https://picsum.photos/50/50" alt="">
+            <div class="card gedf-card w-50">
+                <div class="card-header" style="border: 0;background-color: white;">
+                    <div class="d-flex ">
+                        <div class="d-flex  position-relative">
+                            <div class="mr-2">
+                                <!-- <i class="fa-light fa-circle fa-flip fa-lg"></i> -->
+                                <img class="rounded-circle" width="45" src="https://picsum.photos/50/50" alt="">
+                            </div>
+                            <div class="ml-2">
+                                <div class="h5 m-0">
+                                    <?php echo $question['user_name']; ?>
+
                                 </div>
-                                <div class="ml-2">
-                                    <div class="h5 m-0">
-                                        <?php echo $question['user_name']; ?>
+                            </div>
+                            <div class="text-muted h7 mb-2 " style="position: relative;left: 140%;">
+                                <i class="fa-solid fa-clock" style="padding-right: 5px;"></i>Asked:
+                                <?php echo $question['date_asked']; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body p-2">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <div class="d-flex align-items-center justify-content-center flex-column">
+                            <i class="fa-solid fa-sort-up fa-2xl" style="padding-left: 3px; cursor: pointer;"
+                                onclick="upvote()"></i>
+                            <p style="position: relative;padding: 5px 0;margin: 0;" id="voteCount">
+                                0
+                            </p>
+                            <i class="fa-solid fa-sort-down fa-2xl" style="padding-left: 3px; cursor: pointer;"
+                                onclick="downvote()"></i>
+                        </div>
+                        <div class="col-sm-11">
+                            <a class="card-link" href="#">
+                                <h5 class="card-title" style="font-weight: bold;">
+                                    <?php echo $question['question_title']; ?>
+                                </h5>
+                            </a>
+                            <p class="card-text">
+                                <?php echo $question['question_text'];
+                                ?>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <?php $question_id = $question['question_id'];
 
+                $sql1 = "SELECT a.answer_text, a.date_answered, u.user_name
+                    FROM answers a
+                     JOIN Users u ON a.user_id = u.user_id
+                     WHERE a.question_id = $question_id";
+                $result1 = $con->query($sql1);
+                $count = mysqli_num_rows($result1);
+                ?>
+                <div class="card-footer">
+                    <button class="card-link btn-transparent" type="button" onclick="toggleAnswers()"><i
+                            class="fa-regular fa-message"></i>
+                        <?php echo $count; ?> Answers
+                    </button>
+
+                    <button type="button" class="btn btn-outline-primary btn-sm" style="position: absolute;left: 88%;"
+                        onclick="showAnswerForm()" <?php if ($_SESSION['utype'] == "rural")
+                            echo "hidden"; ?>>Answer</button>
+                    <div id="answer-form-container" style="display: none;">
+                        <?php $questionid1 = $question['question_id']; ?>
+                        <form action="post_answer.php" method="post">
+                            <div class="form-group">
+                                <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+                                <input type="hidden" name="q_id" value="<?php echo $questionid1; ?>">
+                                <label for="answer_content">Your Answer:</label>
+                                <textarea name="answer_content" id="answer_content" class="form-control"></textarea>
+                            </div>
+                            <button type="submit" name="answer_submit" class="btn btn-primary">Submit Answer</button>
+                        </form>
+                    </div>
+                </div>
+                <?php
+
+                // Loop through the answers and display them
+                while ($answer = $result1->fetch_assoc()) {
+                    ?>
+                    <div class="answers" style="display: none;">
+                        <div class="card mt-3">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <?php echo $answer['answer_text']; ?>
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p style="font-size: smaller;" class="text-muted">Answered by:
+                                            <?php echo $answer['user_name']; ?>
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-6 text-right">
+                                        <p style="font-size: smaller;" class="text-muted">Answered on:
+                                            <?php echo $answer['date_answered']; ?>
+                                        </p>
                                     </div>
                                 </div>
-                                <div class="text-muted h7 mb-2 " style="position: relative;left: 140%;">
-                                    <i class="fa-solid fa-clock" style="padding-right: 5px;"></i>Asked:
-                                    <?php echo $question['date_asked']; ?>
-                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="card-body p-2">
-                        <div class="d-flex align-items-center justify-content-center">
-                            <div class="d-flex align-items-center justify-content-center flex-column">
-                                <i class="fa-solid fa-sort-up fa-2xl" style="padding-left: 3px; cursor: pointer;"
-                                    onclick="upvote()"></i>
-                                <p style="position: relative;padding: 5px 0;margin: 0;" id="voteCount">
-                                    0
-                                </p>
-                                <i class="fa-solid fa-sort-down fa-2xl" style="padding-left: 3px; cursor: pointer;"
-                                    onclick="downvote()"></i>
-                            </div>
-                            <div class="col-sm-11">
-                                <a class="card-link" href="#">
-                                    <h5 class="card-title" style="font-weight: bold;">
-                                        <?php echo $question['question_title']; ?>
-                                    </h5>
-                                </a>
-                                <p class="card-text">
-                                    <?php echo $question['question_text']; 
-                                    $count=1;?>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                    <button class="card-link btn-transparent" type="button" onclick="toggleAnswers()"><i class="fa-regular fa-message"></i> <?php echo $count;?> Answers</button>
-
-                        <button type="button" class="btn btn-outline-primary btn-sm" style="position: absolute;left: 88%;"
-                            onclick="showAnswerForm()" <?php if ($_SESSION['utype'] == "rural")
-                                echo "hidden"; ?>>Answer</button>
-                        <div id="answer-form-container" style="display: none;">
-                        <?php $questionid1 = $question['question_id'];?>
-                            <form action="post_answer.php" method="post">
-                                <div class="form-group">
-                                    <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
-                                    <input type="hidden" name="q_id" value="<?php  echo $questionid1 ; ?>">
-                                    <label for="answer_content">Your Answer:</label>
-                                    <textarea name="answer_content" id="answer_content" class="form-control"></textarea>
-                                </div>
-                                <button type="submit" name="answer_submit" class="btn btn-primary">Submit Answer</button>
-                            </form>
                         </div>
                     </div>
                     <?php
-         $question_id = $question['question_id'];
+                }
+                ?>
 
-       $sql1 = "SELECT a.answer_text, a.date_answered, u.user_name
-        FROM answers a
-        JOIN Users u ON a.user_id = u.user_id
-        WHERE a.question_id = $question_id";
-        $result1 = $con->query($sql1);
-
-// Loop through the answers and display them
-while ($answer = $result1->fetch_assoc()) {
-    ?>
-<div class="answers" style="display: none;">
-    <div class="card mt-3">
-        <div class="card-body">
-            <p class="card-text"><?php echo $answer['answer_text']; ?></p>
-        </div>
-        <div class="card-footer">
-            <div class="row">
-                <div class="col-sm-6">
-                    <p style="font-size: smaller;" class="text-muted">Answered by: <?php echo $answer['user_name']; ?></p>
-                </div>
-                <div class="col-sm-6 text-right">
-                    <p style="font-size: smaller;" class="text-muted">Answered on: <?php echo $answer['date_answered']; ?></p>
-                </div>
             </div>
-        </div>
-    </div>
-</div>
-    <?php
-}
-?>
 
-</div>
-
-            <?php 
+            <?php
         } ?>
 
 
@@ -311,11 +330,11 @@ while ($answer = $result1->fetch_assoc()) {
         }
 
         function toggleAnswers() {
-    var answers = document.querySelectorAll(".answers");
-    for (var i = 0; i < answers.length; i++) {
-        answers[i].style.display = answers[i].style.display === "none" ? "block" : "none";
-    }
-}
+            var answers = document.querySelectorAll(".answers");
+            for (var i = 0; i < answers.length; i++) {
+                answers[i].style.display = answers[i].style.display === "none" ? "block" : "none";
+            }
+        }
 
         ClassicEditor
             .create(document.querySelector('#post_content'))
