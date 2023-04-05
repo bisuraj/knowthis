@@ -1,4 +1,4 @@
-<header>
+<head>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
     <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
@@ -21,6 +21,10 @@
     <style>
         body {
             margin-top: 20px;
+        }
+
+        .goog-te-banner-frame {
+            display: none !important;
         }
 
         .footer .footer-socila-icon a {
@@ -130,141 +134,102 @@
         }
     </style>
 
-</header>
+</head>
 
-<footer class="bg-dark-gradient footer">
-    <div class="footer-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-lg-3 my-4">
-                    <div class="mb-4">
-                        <img src="static/img/logo-light.svg" title="" alt="">
-                    </div>
-                    <div id="google_translate_element"></div>
-                                    <script type="text/javascript">
-                                        function googleTranslateElementInit() {
-                                            new google.translate.TranslateElement({
-                                                pageLanguage: 'en',
-                                                autoDisplay: 'true',
-                                                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                                                gaTrack: true,
-                                                gaId: 'UA-123456-7',
-                                                buttonImage: '//raw.githubusercontent.com/google/material-design-icons/master/action/svg/production/ic_language_48px.svg'
-                                            }, 'google_translate_element');
-                                        }
-                                    </script>
-                                    <script
-                                        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-                    <div class="text-white-65 mb-4">Know this Platform</div>
-                    <div class="nav footer-socila-icon">
-                        <a href="https://linktr.ee/ujjwal22">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://linktr.ee/ujjwal22">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://linktr.ee/ujjwal22">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://linktr.ee/ujjwal22">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-2 my-4">
-                    <h5 class="text-white h6 mb-4">Get started</h5>
-                    <ul class="list-unstyled white-link footer-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Sign up</a></li>
-                        <li><a href="#">Downloads</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-6 col-lg-2 my-4">
-                    <h5 class="text-white h6 mb-4">About us</h5>
-                    <ul class="list-unstyled white-link footer-links">
-                        <li><a href="#">Company Information</a></li>
-                        <li><a href="#">Contact us</a></li>
-                        <li><a href="#">Reviews</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-6 col-lg-2 my-4">
-                    <h5 class="text-white h6 mb-4">Support</h5>
-                    <ul class="list-unstyled white-link footer-links">
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Help desk</a></li>
-                        <li><a href="#">Forums</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-6 col-lg-3 my-4">
-                    <h5 class="text-white h6 mb-4">Contributors</h5>
-                    <div class="white-link">
-                        <div class="d-flex pb-3">
-                            <div class="avatar avatar-lg rounded">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" title="" alt="">
-                            </div>
-                            <div class="col ps-3">
-                                <small class="text-white-65">20BCE2923</small>
-                                <h6 class="font-w-500 h6 m-0"><a class="text-white" href="#">Bisuraj Sharma</a></h6>
-                            </div>
+<body>
+    <footer class="bg-dark-gradient footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-3 my-4">
+                        <div class="mb-4">
+                            <img src="static/img/logo-light.svg" title="" alt="">
                         </div>
-                        <div class="d-flex">
-                            <div class="avatar avatar-lg rounded">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png" title="" alt="">
+                        <div id="google_translate_element"></div>
+                        <script type="text/javascript">
+                            function googleTranslateElementInit() {
+                                new google.translate.TranslateElement({
+                                    pageLanguage: 'en',
+                                    autoDisplay: 'true',
+                                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                                    gaTrack: true,
+                                    gaId: 'UA-123456-7',
+                                    buttonImage: '//raw.githubusercontent.com/google/material-design-icons/master/action/svg/production/ic_language_48px.svg'
+                                }, 'google_translate_element');
+                            }
+                        </script>
+                        <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                        <div class="text-white-65 mb-4">Know this Platform</div>
+                        <div class="nav footer-socila-icon">
+                            <a href="https://linktr.ee/ujjwal22">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://linktr.ee/ujjwal22">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://linktr.ee/ujjwal22">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://linktr.ee/ujjwal22">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-2 my-4">
+                        <h5 class="text-white h6 mb-4">Get started</h5>
+                        <ul class="list-unstyled white-link footer-links">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Sign up</a></li>
+                            <li><a href="#">Downloads</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-lg-2 my-4">
+                        <h5 class="text-white h6 mb-4">About us</h5>
+                        <ul class="list-unstyled white-link footer-links">
+                            <li><a href="#">Company Information</a></li>
+                            <li><a href="#">Contact us</a></li>
+                            <li><a href="#">Reviews</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-lg-2 my-4">
+                        <h5 class="text-white h6 mb-4">Support</h5>
+                        <ul class="list-unstyled white-link footer-links">
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Help desk</a></li>
+                            <li><a href="#">Forums</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 my-4">
+                        <h5 class="text-white h6 mb-4">Contributors</h5>
+                        <div class="white-link">
+                            <div class="d-flex pb-3">
+                                <div class="avatar avatar-lg rounded">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" title="" alt="">
+                                </div>
+                                <div class="col ps-3">
+                                    <small class="text-white-65">20BCE2923</small>
+                                    <h6 class="font-w-500 h6 m-0"><a class="text-white" href="#">Bisuraj Sharma</a></h6>
+                                </div>
                             </div>
-                            <div class="col ps-3">
-                                <small class="text-white-65">20BCE0415</small>
-                                <h6 class="font-w-500 h6 m-0"><a class="text-white" href="#">Ujjwal Tiwari</a></h6>
+                            <div class="d-flex">
+                                <div class="avatar avatar-lg rounded">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar2.png" title="" alt="">
+                                </div>
+                                <div class="col ps-3">
+                                    <small class="text-white-65">20BCE0415</small>
+                                    <h6 class="font-w-500 h6 m-0"><a class="text-white" href="#">Ujjwal Tiwari</a></h6>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</footer>
-<script>$('document').ready(function () {
-  $('#google_translate_element').on("click", function () {
-    // Change font family, color and size
-    $("iframe").contents().find(".goog-te-menu2-item div, .goog-te-menu2-item:link div, .goog-te-menu2-item:visited div, .goog-te-menu2-item:active div, .goog-te-menu2 *")
-      .css({
-        'color': '#333',
-        'font-family': 'Roboto',
-        'font-size': '14px',
-        'width': '100%'
-      });
-    // Add hover effect
-    $("iframe").contents().find(".goog-te-menu2-item div").hover(function () {
-      $(this).css({
-        'background-color': '#f1f1f1',
-        'border-radius': '5px'
-      }).find('span.text').css('color', '#333');
-    }, function () {
-      $(this).css({
-        'background-color': 'transparent',
-        'border-radius': '0px'
-      }).find('span.text').css('color', '#333');
-    });
-    // Hide selected option
-    $("iframe").contents().find('.goog-te-menu2-item-selected').css('display', 'none');
-    // Adjust padding and width
-    $("iframe").contents().find('.goog-te-menu2').css({
-      'padding': '0px',
-      'width': '100%'
-    });
-    $("iframe").contents().find('.goog-te-menu2-item div').css('padding', '10px 20px');
-    $("iframe").contents().find('.goog-te-menu2-item').css('width', '100%');
-    $("iframe").contents().find('td').css('width', '100%');
-    // Remove border and adjust box-shadow
-    $("iframe").contents().find('.goog-te-menu2').css('border', 'none');
-    $(".goog-te-menu-frame").css('box-shadow', '0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)');
-    // Adjust iframe size
-    $(".goog-te-menu-frame").css({
-      'height': '100%',
-      'width': '100%',
-      'top': '0px'
-    });
-  });
-});
-
-
-            </script>
+    </footer>
+    <script>
+        var banner = document.querySelector(".goog-te-banner-frame");
+if (banner) {
+  banner.style.display = "none";
+}
+    </script>
+</body>

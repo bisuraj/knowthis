@@ -54,13 +54,13 @@ if (isset($_POST['submit'])) {
 		.login-form {
 			width: 400px;
 			margin: 30px auto;
-			color: white;
+			color: black;
 		}
 
 		.login-form form {
 			margin-bottom: 15px;
 			padding: 30px;
-			background-color: #15172b;
+            background: #f7f7f7;
 			border-radius: 20px;
 			box-sizing: border-box;
 		}
@@ -69,10 +69,6 @@ if (isset($_POST['submit'])) {
 			margin: 0 0 15px;
 		}
 
-		.reg-form input::placeholder {
-			color: #ccc;
-			/* Change the color to whatever you want */
-		}
 
 		.form-control,
 		.login-btn {

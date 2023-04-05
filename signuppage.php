@@ -46,16 +46,13 @@ if (isset($_POST['register'])) {
         }
 
         .reg-form form {
-            background-color: #15172b;
   border-radius: 20px;
   box-sizing: border-box;
-  /* height: 500px; */
   padding: 30px;
-  /* width: 320px; */
-            /* margin-bottom: 15px;
+           margin-bottom: 15px;
             background: #f7f7f7;
             box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-            padding: 30px; */
+            padding: 30px;
         }
 
         .reg-form h2 {
@@ -64,7 +61,7 @@ if (isset($_POST['register'])) {
 
         /* Custom radio buttons */
         .reg-form {
-  color: white;
+  color: black;
 }
 
 .reg-form input::placeholder {
@@ -111,7 +108,6 @@ if (isset($_POST['register'])) {
 
 .custom-radio .custom-radio-label {
   font-size: 16px;
-  color: white;
 
 }
 
