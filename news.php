@@ -32,20 +32,24 @@
 
             <?php
             // Define your News API key
-            $apiKey = "e0f2b3353cbf4fe3b880f8bf8aec1f5c";
+            $apiKey = "e87f89b87e0447859283fd8dec6667c8";
 
             // Set the News API endpoint and parameters
             $url = "https://newsapi.org/v2/top-headlines";
+            
             $params = array(
                 "country" => "in",
                 "pageSize" => 8,
             "apiKey" => $apiKey
             );
 
+
             $queryString = http_build_query($params);
             $requestUrl = $url . "?" . $queryString;
             // Send the HTTP request to the News API
             $response = file_get_contents($requestUrl);
+            // $response = file_get_contents($requestUrl, false, stream_context_create($options));
+
             // Convert the JSON response to a PHP object
             $data = json_decode($response);
 

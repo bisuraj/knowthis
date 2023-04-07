@@ -307,9 +307,7 @@ if (isset($_SESSION['user_id'])) {
             </div>
         </div>
     <?php } ?>
-</div>
-
-
+    </div>
                 </div>
 
                 <?php
