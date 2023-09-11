@@ -1,5 +1,5 @@
 # KnowThis
-Know This is a multilingual web platform to help rulal and underdeveloped communities 
+Know This is a multilingual web platform to help rural and underdeveloped communities 
 to know about various government incentives and welfare programs.
 
 ## Functionality
